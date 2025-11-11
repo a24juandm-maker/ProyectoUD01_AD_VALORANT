@@ -4,8 +4,9 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
@@ -17,8 +18,17 @@ public class Pj extends JButton{
     private String name;
     private List<Hability> hability;
     private String description;
-    private ImageIO displayImagePj;
+    private ImageIcon displayImagePj;
 
+    public Pj() {
+        this.id = "";
+        this.name = "";
+        this.hability = new ArrayList<>();
+        this.description = "";
+    }
+    
+    
+    
     public String getId() {
         return id;
     }
@@ -27,10 +37,20 @@ public class Pj extends JButton{
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
+    @Override
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -51,11 +71,11 @@ public class Pj extends JButton{
         this.description = description;
     }
 
-    public ImageIO getDisplayImagePj() {
+    public ImageIcon getDisplayImagePj() {
         return displayImagePj;
     }
 
-    public void setDisplayImagePj(ImageIO displayImagePj) {
+    public void setDisplayImagePj(ImageIcon displayImagePj) {
         this.displayImagePj = displayImagePj;
     }
     

@@ -4,7 +4,7 @@
  */
 package model;
 
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -15,9 +15,9 @@ class Hability {
     private String name;
     private String description;
     private String buttonAssigned;
-    private ImageIO displayImageHability;
+    private ImageIcon displayImageHability;
 
-    public Hability(String name, String description, String buttonAssigned, ImageIO displayImageHability) {
+    public Hability(String name, String description, String buttonAssigned, ImageIcon displayImageHability) {
         this.name = name;
         this.description = description;
         this.buttonAssigned = buttonAssigned;
@@ -48,11 +48,11 @@ class Hability {
         this.buttonAssigned = buttonAssigned;
     }
 
-    public ImageIO getDisplayImageHability() {
+    public ImageIcon getDisplayImageHability() {
         return displayImageHability;
     }
 
-    public void setDisplayImageHability(ImageIO displayImageHability) {
+    public void setDisplayImageHability(ImageIcon displayImageHability) {
         this.displayImageHability = displayImageHability;
     }
     
