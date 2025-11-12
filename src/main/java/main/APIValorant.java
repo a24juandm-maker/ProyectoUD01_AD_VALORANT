@@ -12,7 +12,6 @@ import controller.FrontController;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -25,7 +24,7 @@ import view.MainJFrame;
 
 /**
  *
- * @author W10-Portable
+ * @author dam2_alu13@inf.ald
  */
 public class APIValorant {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException{
