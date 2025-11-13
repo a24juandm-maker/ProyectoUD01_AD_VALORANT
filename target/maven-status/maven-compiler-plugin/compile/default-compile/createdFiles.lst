@@ -6,6 +6,7 @@ controller\FrontController$1.class
 controller\user\RegisterController.class
 model\UserUtilities.class
 main\APIValorant.class
+controller\FrontController$5.class
 view\MainJFrame$3.class
 model\Hability.class
 view\MainJFrame$2.class

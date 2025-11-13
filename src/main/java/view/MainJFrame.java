@@ -4,8 +4,10 @@
  */
 package view;
 
+import java.awt.Image;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
@@ -56,6 +58,7 @@ public class MainJFrame extends javax.swing.JFrame {
         loginJButton = new javax.swing.JButton();
         grandImagePJ = new javax.swing.JPanel();
         showJButton = new javax.swing.JButton();
+        displayImagePJ = new javax.swing.JLabel();
         returnJButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -209,12 +212,14 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        searchTextField.setText("Busqueda");
+        searchTextField.setToolTipText("Escribe el agente a buscar");
         searchTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchTextFieldActionPerformed(evt);
             }
         });
+
+        roleComboBoxItem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rol" }));
 
         registerJButton.setText("Registrarse");
         registerJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -229,6 +234,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         showJButton.setText("Ver");
 
+        displayImagePJ.setText("");
+
         returnJButton.setText("Volver");
         returnJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,18 +248,23 @@ public class MainJFrame extends javax.swing.JFrame {
         grandImagePJLayout.setHorizontalGroup(
             grandImagePJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(grandImagePJLayout.createSequentialGroup()
-                .addComponent(showJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(returnJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(grandImagePJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(grandImagePJLayout.createSequentialGroup()
+                        .addComponent(showJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(returnJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 150, Short.MAX_VALUE))
+                    .addComponent(displayImagePJ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         grandImagePJLayout.setVerticalGroup(
             grandImagePJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(grandImagePJLayout.createSequentialGroup()
-                .addContainerGap(610, Short.MAX_VALUE)
+                .addComponent(displayImagePJ, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(grandImagePJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(returnJButton)
-                    .addComponent(showJButton))
+                    .addComponent(showJButton)
+                    .addComponent(returnJButton))
                 .addContainerGap())
         );
 
@@ -260,43 +272,40 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(roleComboBoxItem, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(registerJButton)
-                .addGap(18, 18, 18)
-                .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(roleComboBoxItem, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(registerJButton)
+                        .addGap(33, 33, 33)
+                        .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(layeredPanelPjs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(grandImagePJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(layeredPanelPjs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(grandImagePJ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(titleJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(registerJButton)
-                            .addComponent(loginJButton)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(roleComboBoxItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(roleComboBoxItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registerJButton)
+                    .addComponent(loginJButton))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(layeredPanelPjs, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(grandImagePJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -306,36 +315,52 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+    public void addSetImageDisplayLabel(ImageIcon icon) {
+
+
+        Image image = icon.getImage();
+
+        //Tratamiento Imagen
+        
+        Image imageRedimensity = image.getScaledInstance(this.grandImagePJ.getWidth(), this.grandImagePJ.getHeight(), Image.SCALE_SMOOTH);
+
+        // Creacion  ImageIcon redimensionado
+        ImageIcon imagenBotonFinal = new ImageIcon(imageRedimensity);
+
+        this.displayImagePJ.setIcon(imagenBotonFinal);
+
+    }
+
     private void setLayout() {
         this.layeredPanelPjs.setLayer(this.panelPjs, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panelPjs.setBounds(0, 300, 200, 200);
+        panelPjs.setBounds(0, 0, 200, 200);
         this.layeredPanelPjs.setLayer(this.panelHabilitis, javax.swing.JLayeredPane.PALETTE_LAYER);
-        panelHabilitis.setBounds(0, 300, 200, 200);
-        
+        panelHabilitis.setBounds(0, 0, 200, 200);
+
         panelHabilitis.setVisible(false);
         panelPjs.setVisible(true);
         this.setSize(1100, 1000);
-        
 
-        
     }
-    
-    
-    
-    
-    
-    public void setPanel(JPanel panel){
+
+    public void addButtonPj(JButton button) {
+        this.panelPjs.add(button);
+    }
+
+    public void addItemRoleComboBox(String item) {
+        this.roleComboBoxItem.addItem(item);
+    }
+
+    public void setPanel(JPanel panel) {
         this.panelPjs = panel;
     }
-    
-    public void setImageTitle(ImageIcon icon){
+
+    public void setImageTitle(ImageIcon icon) {
         this.titleJLabel.setText(null);
         this.titleJLabel.setIcon(icon);
         this.titleJLabel.setVisible(true);
     }
-    
+
     private void searchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchTextFieldActionPerformed
@@ -348,80 +373,78 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_returnJButtonActionPerformed
 
-    public void setRegisterJButtonActionListener(ActionListener al){
+    public void setRegisterJButtonActionListener(ActionListener al) {
         this.registerJButton.addActionListener(al);
     }
-    
-    public void setLoginJButtonActionListener(ActionListener al){
+
+    public void setLoginJButtonActionListener(ActionListener al) {
         this.loginJButton.addActionListener(al);
     }
-    
-    public void setShowJButtonActionListener(ActionListener al){
+
+    public void setShowJButtonActionListener(ActionListener al) {
         this.showJButton.addActionListener(al);
     }
-    
-    public void setReturnJButtonActionListener(ActionListener al){
+
+    public void setReturnJButtonActionListener(ActionListener al) {
         this.returnJButton.addActionListener(al);
     }
-    
-    public String getSearchTextField(){
+
+    public String getSearchTextField() {
         return searchTextField.getText();
     }
-    
-    public void setSearchTextField(String search){
+
+    public void setSearchTextField(String search) {
         searchTextField.setText(search);
     }
-    
-    public void setImagenhabilidad1Label(ImageIcon icon){
+
+    public void setImagenhabilidad1Label(ImageIcon icon) {
         this.imagenhabilidad1Label.setIcon(icon);
     }
-    
-    public void setNombrehabilidad1Label(String text){
+
+    public void setNombrehabilidad1Label(String text) {
         this.nombrehabilidad1Label.setText(text);
     }
-    
-    public void setDescripcionhabilidad1Label(String text){
+
+    public void setDescripcionhabilidad1Label(String text) {
         this.descripcionhabilidad1Label.setText(text);
     }
-    
-    public void setImagenhabilidad2Label(ImageIcon icon){
+
+    public void setImagenhabilidad2Label(ImageIcon icon) {
         this.imagenhabilidad2Label.setIcon(icon);
     }
-    
-    public void setNombrehabilidad2Label(String text){
+
+    public void setNombrehabilidad2Label(String text) {
         this.nombrehabilidad2Label.setText(text);
     }
-    
-    public void setDescripcionhabilidad2Label(String text){
+
+    public void setDescripcionhabilidad2Label(String text) {
         this.descripcionhabilidad2Label.setText(text);
     }
-    
-    public void setImagenhabilidad3Label(ImageIcon icon){
+
+    public void setImagenhabilidad3Label(ImageIcon icon) {
         this.imagenhabilidad3Label.setIcon(icon);
     }
-    
-    public void setNombrehabilidad3Label(String text){
+
+    public void setNombrehabilidad3Label(String text) {
         this.nombrehabilidad3Label.setText(text);
     }
-    
-    public void setDescripcionhabilidad3Label(String text){
+
+    public void setDescripcionhabilidad3Label(String text) {
         this.descripcionhabilidad3Label.setText(text);
     }
-    
-    public void setImagenhabilidad4Label(ImageIcon icon){
+
+    public void setImagenhabilidad4Label(ImageIcon icon) {
         this.imagenhabilidad4Label.setIcon(icon);
     }
-    
-    public void setNombrehabilidad4Label(String text){
+
+    public void setNombrehabilidad4Label(String text) {
         this.nombrehabilidad4Label.setText(text);
     }
-    
-    public void setDescripcionhabilidad4Label(String text){
+
+    public void setDescripcionhabilidad4Label(String text) {
         this.descripcionhabilidad4Label.setText(text);
     }
-    
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel descripcionLabel;
@@ -430,6 +453,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel descripcionhabilidad3Label;
     private javax.swing.JLabel descripcionhabilidad4Label;
     private javax.swing.JLabel descriptionTextLabel;
+    private javax.swing.JLabel displayImagePJ;
     private javax.swing.JPanel grandImagePJ;
     private javax.swing.JLabel habilidadesLabel;
     private javax.swing.JLabel imagenhabilidad1Label;

@@ -35,7 +35,8 @@ public class APIValorant {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException{
         
         MainJFrame view = new MainJFrame();
-
+        view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         List<Pj> listaPersonajes = new ArrayList<>();
         Pjs dataPersonajes = new Pjs(listaPersonajes);
         JsonArray arrayRaiz = connectionWithApi();
@@ -43,8 +44,7 @@ public class APIValorant {
         FrontController fc = new FrontController(view,dataPersonajes);
         
         view.setVisible(true);
-        
-        
+        //initGUI(listaPersonajes);
         
         
         
@@ -58,10 +58,19 @@ public class APIValorant {
             personaje.setId(son.get("uuid").getAsString());
             personaje.setName(son.get("displayName").getAsString());
             personaje.setDescription(son.get("description").getAsString());
+            // Modo Prueba
+            JsonObject objectRole = son.get("role").getAsJsonObject();
+            personajes.addRole(objectRole.get("displayName").getAsString());
+            personaje.setRole(objectRole.get("displayName").getAsString());
+            
             
             URI linkImage = new URI(son.get("displayIcon").getAsString());
             ImageIcon displayIcon = new ImageIcon(linkImage.toURL());
             personaje.setDisplayImagePj(displayIcon);
+            
+            URI linkImagePortrait = new URI(son.get("fullPortrait").getAsString());
+            ImageIcon displayPortrait = new ImageIcon(linkImagePortrait.toURL());
+            personaje.setGreatPjImage(displayPortrait);
             
             JsonArray arrayAbilities = son.getAsJsonArray("abilities");
             List<Hability> listaHabilidades = new ArrayList<>();
@@ -91,6 +100,7 @@ public class APIValorant {
             personajes.getListPj().add(personaje);
         }
         
+        
 
 
     }
@@ -105,7 +115,8 @@ public class APIValorant {
     }
     
     public static void initGUI(List<Pj> listaPersonajes){
-        ImageIcon image = listaPersonajes.get(0).getHability().get(1).getDisplayImageHability();
+        //ImageIcon image = listaPersonajes.get(0).getHability().get(1).getDisplayImageHability();
+        ImageIcon image = listaPersonajes.get(20).getGreatPjImage();
         
         JFrame frame = new JFrame();
         frame.setBounds(400, 400, 400, 400);

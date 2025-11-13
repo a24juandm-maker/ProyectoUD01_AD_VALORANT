@@ -30,4 +30,7 @@ public class Pjs {
     public void addRole(String role){
         listRoles.add(role);
     }
+    public Set<String> getListRole(){
+        return listRoles;
+    }
 }

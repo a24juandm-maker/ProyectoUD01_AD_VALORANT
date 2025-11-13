@@ -19,6 +19,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import model.Pj;
 import model.Pjs;
 import view.MainJFrame;
 import view.user.UserJDialog;
@@ -39,41 +41,114 @@ public class FrontController {
         this.view.setShowJButtonActionListener(this.getShowJButtonActionListener());
         this.view.setReturnJButtonActionListener(this.getReturnJButtonActionListener());
         this.data = data;
-        
+
         this.view.setRegisterJButtonActionListener(this.getRegisterJButtonActionListener());
         this.view.setLoginJButtonActionListener(this.getLoginJButtonActionListener());
         view.setImageTitle(this.addTitleImage());
 
+        initComboBox();
+        addPjButtons();
     }
-    
-    
-    private ActionListener getRegisterJButtonActionListener(){
+
+    public void addPjButtons() {
+        int tamanhoLista = data.getListPj().size();
+        System.out.println("Tenemos este numero de personajes " + tamanhoLista);
+
+
+        int columnas = 6;
+
+        // Calcular el número de filas necesarias, matematicas del infierno
+        int filas = (int) Math.ceil(tamanhoLista / (double) columnas);
+        int gap = 10;
+        int contador = 0;
+        int tamanhoBoton = 100;
+        
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                if (contador < tamanhoLista) {
+                    
+                    Pj boton = (Pj) data.getListPj().get(contador);
+                    
+                    boton.setLayout(null);
+                    
+                    int xPos = j*(tamanhoBoton + gap);
+                    int yPos = i*(tamanhoBoton + gap);
+                    boton.setBounds(xPos, yPos, tamanhoBoton, tamanhoBoton);
+                    
+                    ImageIcon careto = boton.getDisplayImagePj();
+                    Image image = careto.getImage();
+
+                    //Tratamiento Imagen
+                    Image imageRedimensity = image.getScaledInstance(boton.getWidth(), boton.getHeight(), Image.SCALE_SMOOTH);
+
+                    // Creacion  ImageIcon redimensionado
+                    ImageIcon imagenBotonFinal = new ImageIcon(imageRedimensity);
+                    
+                    boton.setIcon(imagenBotonFinal);
+                    
+                    boton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            System.out.println("presiono agente, muestro imagen");
+                            view.addSetImageDisplayLabel(boton.getGreatPjImage());
+                        }
+                    });
+                    
+                    
+                    
+                    
+                    
+                    view.addButtonPj(boton);
+                    contador++;
+                    
+
+                }
+                else{
+                    JButton emptyButton = new JButton();
+                    emptyButton.setEnabled(false); // Lo deshabilitamos
+                    view.add(emptyButton);
+                }
+            }
+        }
+        view.revalidate();
+        view.repaint();
+        //this.view.addButtonPj(button);
+    }
+
+    private void initComboBox() {
+        for (String p : data.getListRole()) {
+            this.view.addItemRoleComboBox(p);
+
+        }
+    }
+
+    private ActionListener getRegisterJButtonActionListener() {
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Boton Registrar");
-                UserJDialog viewLogin = new UserJDialog(view,true);
-                LoginController lc = new LoginController(viewLogin,data,FrontController.this);
+                UserJDialog viewLogin = new UserJDialog(view, true);
+                LoginController lc = new LoginController(viewLogin, data, FrontController.this);
                 viewLogin.setVisible(true);
             }
         };
         return al;
     }
-    
-    private ActionListener getLoginJButtonActionListener(){
+
+    private ActionListener getLoginJButtonActionListener() {
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Boton Login");
-                UserJDialog viewLogin = new UserJDialog(view,true);
-                LoginController lc = new LoginController(viewLogin,data,FrontController.this);
+                UserJDialog viewLogin = new UserJDialog(view, true);
+                LoginController lc = new LoginController(viewLogin, data, FrontController.this);
                 viewLogin.setVisible(true);
             }
         };
         return al;
     }
-    
-    private ActionListener getShowJButtonActionListener(){
+
+    private ActionListener getShowJButtonActionListener() {
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,8 +157,8 @@ public class FrontController {
         };
         return al;
     }
-    
-    private ActionListener getReturnJButtonActionListener(){
+
+    private ActionListener getReturnJButtonActionListener() {
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -92,8 +167,6 @@ public class FrontController {
         };
         return al;
     }
-
-
 
     private ImageIcon addTitleImage() {
         ImageIcon titleImage = null;
@@ -128,8 +201,7 @@ public class FrontController {
         } catch (InterruptedException ex) {
             Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
         return titleImage;
     }
 }
