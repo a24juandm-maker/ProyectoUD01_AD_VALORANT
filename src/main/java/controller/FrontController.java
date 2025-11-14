@@ -6,6 +6,7 @@ package controller;
 
 import controller.user.LoginController;
 import controller.user.RegisterController;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,11 +17,15 @@ import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import model.Hability;
 import model.Pj;
 import model.Pjs;
 import model.Users;
@@ -36,6 +41,10 @@ public class FrontController {
     private MainJFrame view;
     private Pjs dataPjs;
     private Users dataUsuarios;
+    
+    private static final int ANCHO_HABILIDAD = 60;
+    private static final int ALTO_HABILIDAD = 60;
+    private JPanel gridPanel;
 
     public FrontController(MainJFrame view, Pjs data,Users dataUsuarios) {
         this.view = view;
@@ -43,8 +52,7 @@ public class FrontController {
         this.dataUsuarios = dataUsuarios;
         this.view.setRegisterJButtonActionListener(this.getRegisterJButtonActionListener());
         this.view.setLoginJButtonActionListener(this.getLoginJButtonActionListener());
-        this.view.setShowJButtonActionListener(this.getShowJButtonActionListener());
-        this.view.setReturnJButtonActionListener(this.getReturnJButtonActionListener());
+
 
 
         
@@ -61,11 +69,14 @@ public class FrontController {
 
         int columnas = 6;
 
+
         // Calcular el número de filas necesarias, matematicas del infierno
         int filas = (int) Math.ceil(tamanhoLista / (double) columnas);
         int gap = 10;
         int contador = 0;
         int tamanhoBoton = 100;
+        
+        
         
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
@@ -79,22 +90,62 @@ public class FrontController {
                     int yPos = i*(tamanhoBoton + gap);
                     boton.setBounds(xPos, yPos, tamanhoBoton, tamanhoBoton);
                     
+                    
                     ImageIcon careto = boton.getDisplayImagePj();
                     Image image = careto.getImage();
 
                     //Tratamiento Imagen
-                    Image imageRedimensity = image.getScaledInstance(boton.getWidth(), boton.getHeight(), Image.SCALE_SMOOTH);
+                    Image imageRedimensity = image.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
 
                     // Creacion  ImageIcon redimensionado
                     ImageIcon imagenBotonFinal = new ImageIcon(imageRedimensity);
                     
                     boton.setIcon(imagenBotonFinal);
+
                     
                     boton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             System.out.println("presiono agente, muestro imagen");
                             view.addSetImageDisplayLabel(boton.getGreatPjImage());
+                            
+                            //List<Hability> listHability = boton.getHability();
+                            //redimensionarImageLabel();
+                                    
+                                    
+                            //view.setImagenhabilidad1Label(boton.getHability().get(0).getDisplayImageHability());
+                            view.setImagenhabilidad1Label(redimensionarImageLabel(boton.getHability().get(0).getDisplayImageHability(),
+                            view.getImagenhabilidad1Label()));
+                            view.setImagenhabilidad2Label(redimensionarImageLabel(boton.getHability().get(1).getDisplayImageHability(),
+                            view.getImagenhabilidad2Label()));
+                            view.setImagenhabilidad3Label(redimensionarImageLabel(boton.getHability().get(2).getDisplayImageHability(),
+                            view.getImagenhabilidad3Label()));
+                            view.setImagenhabilidad4Label(redimensionarImageLabel(boton.getHability().get(3).getDisplayImageHability(),
+                            view.getImagenhabilidad4Label()));
+                            
+                            // NOMBRE HABILIDADES
+                            view.setNombrehabilidad1Label(boton.getHability().get(0).getName());
+                            view.setNombrehabilidad2Label(boton.getHability().get(1).getName());
+                            view.setNombrehabilidad3Label(boton.getHability().get(2).getName());
+                            view.setNombrehabilidad4Label(boton.getHability().get(3).getName());
+                            
+                            //DESCRIPCION HABILIDADES
+                            view.setDescripcionhabilidad1Label(boton.getHability().get(0).getDescription());
+                            view.setDescripcionhabilidad2Label(boton.getHability().get(1).getDescription());
+                            view.setDescripcionhabilidad3Label(boton.getHability().get(2).getDescription());
+                            view.setDescripcionhabilidad4Label(boton.getHability().get(3).getDescription());
+                            
+                        }
+
+                        private ImageIcon redimensionarImageLabel(ImageIcon image, JLabel label) {
+                            // SETEAR IMAGEN HABILIDAD
+                            ImageIcon iconoHabilidad = image;
+                            Image imageHab = iconoHabilidad.getImage();
+                            Image imageRedimensityHab = imageHab.getScaledInstance(ANCHO_HABILIDAD,
+                                    ALTO_HABILIDAD,
+                                    Image.SCALE_SMOOTH);
+                            ImageIcon imagenHabFinal = new ImageIcon(imageRedimensityHab);
+                            return imagenHabFinal;
                         }
                     });
                     

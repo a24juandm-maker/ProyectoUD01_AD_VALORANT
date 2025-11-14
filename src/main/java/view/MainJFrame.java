@@ -4,7 +4,9 @@
  */
 package view;
 
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,19 +17,25 @@ import javax.swing.JPanel;
  *
  * @author dam2_alu05@inf.ald
  */
-
-
 public class MainJFrame extends javax.swing.JFrame {
 
-    private static final int ALTO_IMAGEN_LATERAL = 650;
-    private static final int ANCHO_IMAGEN_LATERAL = 550;
+    private static final int ALTO_IMAGEN_CENTRAL = 650;
+    private static final int ANCHO_IMAGEN_CENTRAL = 550;
+    private static final int POSX_CENTRAL_IMAGE = 750;
+    private static final int POSY_CENTRAL_IMAGE =280;      
+
     /**
      * Creates new form Screen
      */
     public MainJFrame() {
         initComponents();
-        setLayout();    
+        setLayout();
         quitBackgroundColorPanelCuadricula();
+        this.displayImagePJ.setLayout(null);
+        maximizeWindow();
+        quitLayoutLateral();
+        
+        modifyInitComponents();
     }
 
     /**
@@ -44,10 +52,6 @@ public class MainJFrame extends javax.swing.JFrame {
         roleComboBoxItem = new javax.swing.JComboBox<>();
         registerJButton = new javax.swing.JButton();
         loginJButton = new javax.swing.JButton();
-        grandImagePJ = new javax.swing.JPanel();
-        showJButton = new javax.swing.JButton();
-        displayImagePJ = new javax.swing.JLabel();
-        returnJButton = new javax.swing.JButton();
         panelHabilitis = new javax.swing.JPanel();
         descripcionLabel = new javax.swing.JLabel();
         habilidadesLabel = new javax.swing.JLabel();
@@ -65,6 +69,7 @@ public class MainJFrame extends javax.swing.JFrame {
         descripcionhabilidad4Label = new javax.swing.JLabel();
         descriptionTextLabel = new javax.swing.JLabel();
         panelPjs = new javax.swing.JPanel();
+        displayImagePJ = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(this.MAXIMIZED_BOTH);
@@ -90,26 +95,6 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         loginJButton.setText("Login");
-
-        grandImagePJ.setBackground(new java.awt.Color(0, 0, 0));
-        grandImagePJ.setLayout(null);
-
-        showJButton.setText("Ver");
-        grandImagePJ.add(showJButton);
-        showJButton.setBounds(0, 681, 150, 23);
-
-        displayImagePJ.setText("");
-        grandImagePJ.add(displayImagePJ);
-        displayImagePJ.setBounds(0, 0, 444, 675);
-
-        returnJButton.setText("Volver");
-        returnJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                returnJButtonActionPerformed(evt);
-            }
-        });
-        grandImagePJ.add(returnJButton);
-        returnJButton.setBounds(162, 681, 128, 23);
 
         panelHabilitis.setBackground(new java.awt.Color(0, 255, 0));
 
@@ -209,7 +194,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(imagenhabilidad3Label)
                     .addComponent(nombrehabilidad3Label)
                     .addComponent(descripcionhabilidad3Label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 413, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 408, Short.MAX_VALUE)
                 .addGroup(panelHabilitisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(imagenhabilidad4Label)
                     .addComponent(nombrehabilidad4Label)
@@ -230,6 +215,8 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        displayImagePJ.setText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -238,17 +225,20 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(panelPjs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(grandImagePJ, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(132, 132, 132)
-                        .addComponent(panelHabilitis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(panelPjs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
-                        .addComponent(roleComboBoxItem, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(roleComboBoxItem, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(displayImagePJ, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(panelHabilitis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 458, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(registerJButton)
                         .addGap(33, 33, 33)
@@ -258,7 +248,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(397, 397, 397))
+                .addGap(414, 414, 414))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,12 +260,16 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registerJButton)
                     .addComponent(loginJButton))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(grandImagePJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelPjs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelHabilitis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(290, 290, 290))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelPjs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelHabilitis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(displayImagePJ, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(347, 347, 347))
         );
 
         pack();
@@ -285,36 +279,32 @@ public class MainJFrame extends javax.swing.JFrame {
 
         quitLayoutLateral();
         Image image = icon.getImage();
-        
+
         //Tratamiento Imagen
-        
-        Image imageRedimensity = image.getScaledInstance(this.grandImagePJ.getWidth(), this.grandImagePJ.getHeight(), Image.SCALE_SMOOTH);
+        Image imageRedimensity = image.getScaledInstance(ANCHO_IMAGEN_CENTRAL, ALTO_IMAGEN_CENTRAL, Image.SCALE_SMOOTH);
 
         // Creacion  ImageIcon redimensionado
         ImageIcon imagenBotonFinal = new ImageIcon(imageRedimensity);
 
-        if(this.displayImagePJ != null){
+        if (this.displayImagePJ != null) {
             this.displayImagePJ.setIcon(imagenBotonFinal);
-        }
-        else{
+        } else {
             this.displayImagePJ.setIcon(null);
             this.displayImagePJ.setIcon(imagenBotonFinal);
         }
-        
 
     }
 
     private void quitLayoutLateral() {
         // Pruebas sin layout
-        this.grandImagePJ.setLayout(null);
-        this.grandImagePJ.setOpaque(false);
-        this.grandImagePJ.setBounds(750, 280, ANCHO_IMAGEN_LATERAL, ALTO_IMAGEN_LATERAL);
+        //this.displayImagePJ.setLayout(null);
+        //this.grandImagePJ.setOpaque(false);
+        this.displayImagePJ.setBounds(POSX_CENTRAL_IMAGE, POSY_CENTRAL_IMAGE, ANCHO_IMAGEN_CENTRAL, ALTO_IMAGEN_CENTRAL);
         // x y ancho alto
     }
 
-
     private void setLayout() {
- 
+
         panelPjs.setBounds(0, 0, 1100, 1100);
         panelHabilitis.setBounds(0, 0, 1100, 1100);
 
@@ -340,9 +330,7 @@ public class MainJFrame extends javax.swing.JFrame {
         this.titleJLabel.setText(null);
         this.titleJLabel.setIcon(icon);
 
- 
         // X Y ANCHO ALTO
-
         this.titleJLabel.setVisible(true);
     }
 
@@ -354,24 +342,12 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_registerJButtonActionPerformed
 
-    private void returnJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnJButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_returnJButtonActionPerformed
-
     public void setRegisterJButtonActionListener(ActionListener al) {
         this.registerJButton.addActionListener(al);
     }
 
     public void setLoginJButtonActionListener(ActionListener al) {
         this.loginJButton.addActionListener(al);
-    }
-
-    public void setShowJButtonActionListener(ActionListener al) {
-        this.showJButton.addActionListener(al);
-    }
-
-    public void setReturnJButtonActionListener(ActionListener al) {
-        this.returnJButton.addActionListener(al);
     }
 
     public String getSearchTextField() {
@@ -439,7 +415,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel descripcionhabilidad4Label;
     private javax.swing.JLabel descriptionTextLabel;
     private javax.swing.JLabel displayImagePJ;
-    private javax.swing.JPanel grandImagePJ;
     private javax.swing.JLabel habilidadesLabel;
     private javax.swing.JLabel imagenhabilidad1Label;
     private javax.swing.JLabel imagenhabilidad2Label;
@@ -453,10 +428,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel panelHabilitis;
     private javax.swing.JPanel panelPjs;
     private javax.swing.JButton registerJButton;
-    private javax.swing.JButton returnJButton;
     private javax.swing.JComboBox<String> roleComboBoxItem;
     private javax.swing.JTextField searchTextField;
-    private javax.swing.JButton showJButton;
     private javax.swing.JLabel titleJLabel;
     // End of variables declaration//GEN-END:variables
 
@@ -467,4 +440,37 @@ public class MainJFrame extends javax.swing.JFrame {
         this.panelHabilitis.setBackground(null);
         this.panelHabilitis.setOpaque(false);
     }
+
+    private void maximizeWindow() {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(screenSize);
+        this.setLocation(0, 0);
+
+    }
+
+    public JLabel getImagenhabilidad1Label() {
+        return this.imagenhabilidad1Label;
+    }
+
+    public JLabel getImagenhabilidad2Label() {
+        return this.imagenhabilidad2Label;
+    }
+
+    public JLabel getImagenhabilidad3Label() {
+        return this.imagenhabilidad3Label;
+    }
+
+    public JLabel getImagenhabilidad4Label() {
+        return this.imagenhabilidad4Label;
+    }
+
+    private void modifyInitComponents() {
+        
+
+        this.setLayout(null);
+        maximizeWindow();
+        
+        
+    }
+
 }
