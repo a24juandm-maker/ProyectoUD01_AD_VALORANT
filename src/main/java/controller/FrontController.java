@@ -9,17 +9,22 @@ import controller.user.RegisterController;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import model.Pj;
 import model.Pjs;
 import model.Users;
@@ -35,31 +40,33 @@ public class FrontController {
     private MainJFrame view;
     private Pjs dataPjs;
     private Users dataUsuarios;
-
-    public FrontController(MainJFrame view, Pjs data, Users dataUsuarios) {
+    
+    private static final int ANCHO_HABILIDAD = 60;
+    private static final int ALTO_HABILIDAD = 60;
+    
+    public FrontController(MainJFrame view, Pjs data,Users dataUsuarios) {
         this.view = view;
         this.dataPjs = data;
         this.dataUsuarios = dataUsuarios;
+        
         this.view.setRegisterJButtonActionListener(this.getRegisterJButtonActionListener());
         this.view.setLoginJButtonActionListener(this.getLoginJButtonActionListener());
-        this.view.setShowJButtonActionListener(this.getShowJButtonActionListener());
-        this.view.setReturnJButtonActionListener(this.getReturnJButtonActionListener());
-
-
-        
-        view.setImageTitle(this.addTitleImage());
+        this.view.setSearchTextFieldKeyListener(this.getSearchTextFieldKeyListener());
+        this.view.setRoleComboJComboBoxActionListener(this.getRoleComboJComboBoxActionListener());
+        this.view.setImageTitle(this.addTitleImage());
 
         initComboBox();
-        addPjButtons();
+        
+        List<Pj> dataPj = dataPjs.getListPj();
+        addPjButtons(dataPj);
     }
 
-    public void addPjButtons() {
-        int tamanhoLista = dataPjs.getListPj().size();
+    public void addPjButtons(List<Pj> dataPjs) {
+        int tamanhoLista = dataPjs.size();
         System.out.println("Tenemos este numero de personajes " + tamanhoLista);
-
-
+        
         int columnas = 6;
-
+        
         // Calcular el número de filas necesarias, matematicas del infierno
         int filas = (int) Math.ceil(tamanhoLista / (double) columnas);
         int gap = 10;
@@ -70,7 +77,7 @@ public class FrontController {
             for (int j = 0; j < columnas; j++) {
                 if (contador < tamanhoLista) {
                     
-                    Pj boton = (Pj) dataPjs.getListPj().get(contador);
+                    Pj boton = (Pj) dataPjs.get(contador);
                     
                     boton.setLayout(null);
                     
@@ -78,33 +85,64 @@ public class FrontController {
                     int yPos = i*(tamanhoBoton + gap);
                     boton.setBounds(xPos, yPos, tamanhoBoton, tamanhoBoton);
                     
+                    
                     ImageIcon careto = boton.getDisplayImagePj();
                     Image image = careto.getImage();
 
                     //Tratamiento Imagen
-                    Image imageRedimensity = image.getScaledInstance(boton.getWidth(), boton.getHeight(), Image.SCALE_SMOOTH);
+                    Image imageRedimensity = image.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
 
                     // Creacion  ImageIcon redimensionado
                     ImageIcon imagenBotonFinal = new ImageIcon(imageRedimensity);
                     
                     boton.setIcon(imagenBotonFinal);
+
                     
                     boton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             System.out.println("presiono agente, muestro imagen");
                             view.addSetImageDisplayLabel(boton.getGreatPjImage());
+                            
+                            view.setDescripcionPersonajeLabel(boton.getDescription());
+                            
+                            view.setImagenhabilidad1Label(redimensionarImageLabel(boton.getHability().get(0).getDisplayImageHability(),
+                            view.getImagenhabilidad1Label()));
+                            view.setImagenhabilidad2Label(redimensionarImageLabel(boton.getHability().get(1).getDisplayImageHability(),
+                            view.getImagenhabilidad2Label()));
+                            view.setImagenhabilidad3Label(redimensionarImageLabel(boton.getHability().get(2).getDisplayImageHability(),
+                            view.getImagenhabilidad3Label()));
+                            view.setImagenhabilidad4Label(redimensionarImageLabel(boton.getHability().get(3).getDisplayImageHability(),
+                            view.getImagenhabilidad4Label()));
+                            
+                            // NOMBRE HABILIDADES
+                            view.setNombrehabilidad1Label(boton.getHability().get(0).getName());
+                            view.setNombrehabilidad2Label(boton.getHability().get(1).getName());
+                            view.setNombrehabilidad3Label(boton.getHability().get(2).getName());
+                            view.setNombrehabilidad4Label(boton.getHability().get(3).getName());
+                            
+                            //DESCRIPCION HABILIDADES
+                            view.setDescripcionhabilidad1Label(boton.getHability().get(0).getDescription());
+                            view.setDescripcionhabilidad2Label(boton.getHability().get(1).getDescription());
+                            view.setDescripcionhabilidad3Label(boton.getHability().get(2).getDescription());
+                            view.setDescripcionhabilidad4Label(boton.getHability().get(3).getDescription());
+                            
+                        }
+
+                        private ImageIcon redimensionarImageLabel(ImageIcon image, JLabel label) {
+                            // SETEAR IMAGEN HABILIDAD
+                            ImageIcon iconoHabilidad = image;
+                            Image imageHab = iconoHabilidad.getImage();
+                            Image imageRedimensityHab = imageHab.getScaledInstance(ANCHO_HABILIDAD,
+                                    ALTO_HABILIDAD,
+                                    Image.SCALE_SMOOTH);
+                            ImageIcon imagenHabFinal = new ImageIcon(imageRedimensityHab);
+                            return imagenHabFinal;
                         }
                     });
                     
-                    
-                    
-                    
-                    
                     view.addButtonPj(boton);
                     contador++;
-                    
-
                 }
                 else{
                     JButton emptyButton = new JButton();
@@ -115,7 +153,6 @@ public class FrontController {
         }
         view.revalidate();
         view.repaint();
-        //this.view.addButtonPj(button);
     }
 
     private void initComboBox() {
@@ -156,22 +193,58 @@ public class FrontController {
         };
         return al;
     }
-
-    private ActionListener getShowJButtonActionListener(){
-        ActionListener al = new ActionListener() {
+    
+    private KeyListener getSearchTextFieldKeyListener(){
+        KeyListener kl = new KeyListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Boton Ver");
+            public void keyTyped(KeyEvent ke) {}
+
+            @Override
+            public void keyPressed(KeyEvent ke) {}
+
+            @Override
+            public void keyReleased(KeyEvent ke) {
+                String searchText = view.getSearchTextField();
+                
+                List<JButton> listaBotones = view.getButtonsPanelPjs();
+                if (!searchText.isEmpty()) {
+                    for (JButton botonPj : listaBotones) {
+                        if(!botonPj.getName().toUpperCase().contains(searchText.toUpperCase()) || !botonPj.getName().toLowerCase().contains(searchText.toLowerCase())){
+                            botonPj.setEnabled(false);
+                        } else {
+                            botonPj.setEnabled(true);
+                        }
+                    }
+                } else {
+                    for(JButton botonPj : listaBotones){
+                        botonPj.setEnabled(true);
+                    }
+                }
             }
         };
-        return al;
+        return kl;
     }
-
-    private ActionListener getReturnJButtonActionListener(){
+    
+    private ActionListener getRoleComboJComboBoxActionListener(){
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Boton Volver");
+                List<Pj> dataPj = dataPjs.getListPj();
+                List<Pj> rolDataPj = new ArrayList<>();
+                Object selectedItem = view.getItemRoleComboJComboBox();
+                if(!selectedItem.equals("Rol")){
+                    for (Pj personaje : dataPj) {
+                        if (personaje.getRole().equals(selectedItem.toString())) {
+                            rolDataPj.add(personaje);
+                        }
+                    }
+                    view.clearPanelPj();
+                
+                    addPjButtons(rolDataPj);
+                } else {
+                    view.clearPanelPj();
+                    addPjButtons(dataPj);
+                }
             }
         };
         return al;
@@ -180,7 +253,6 @@ public class FrontController {
     private ImageIcon addTitleImage() {
         ImageIcon titleImage = null;
         try {
-
             String urlImage = "https://esportsbureau.com/wp-content/uploads/2020/04/valorant.jpg";
 
             //Cargar Imagen Titulo de internet

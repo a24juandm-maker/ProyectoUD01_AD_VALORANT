@@ -25,6 +25,7 @@ import javax.swing.JLabel;
 import model.Hability;
 import model.Pj;
 import model.Pjs;
+import model.User;
 import model.Users;
 import view.MainJFrame;
 
@@ -35,14 +36,20 @@ import view.MainJFrame;
 public class APIValorant {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException{
         
+        
         MainJFrame view = new MainJFrame();
         view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        Users dataUsuarios = new Users();
+        List<Pj> listaPersonajes = new ArrayList<>();
         Pjs dataPersonajes = new Pjs();
+        dataPersonajes.setListPj(listaPersonajes);
+        List<User> users = new ArrayList();
+        Users dataUsuario = new Users();
+        dataUsuario.setListUsers(users);
+        
         JsonArray arrayRaiz = connectionWithApi();
         recoveryDataApi(arrayRaiz, dataPersonajes);
-        FrontController fc = new FrontController(view,dataPersonajes,dataUsuarios);
+        FrontController fc = new FrontController(view,dataPersonajes,dataUsuario);
         
         view.setVisible(true);
         //initGUI(listaPersonajes);
@@ -64,14 +71,23 @@ public class APIValorant {
             personajes.addRole(objectRole.get("displayName").getAsString());
             personaje.setRole(objectRole.get("displayName").getAsString());
             
-            
-            URI linkImage = new URI(son.get("displayIcon").getAsString());
-            ImageIcon displayIcon = new ImageIcon(linkImage.toURL());
-            personaje.setDisplayImagePj(displayIcon);
-            
-            URI linkImagePortrait = new URI(son.get("fullPortrait").getAsString());
-            ImageIcon displayPortrait = new ImageIcon(linkImagePortrait.toURL());
-            personaje.setGreatPjImage(displayPortrait);
+            try{
+                URI linkImage = new URI(son.get("displayIcon").getAsString());
+                ImageIcon displayIcon = new ImageIcon(linkImage.toURL());
+                personaje.setDisplayImagePj(displayIcon);
+
+                URI linkImagePortrait = new URI(son.get("fullPortrait").getAsString());
+                ImageIcon displayPortrait = new ImageIcon(linkImagePortrait.toURL());
+                personaje.setGreatPjImage(displayPortrait);
+            } catch(Exception e){                
+                URI linkImage = new URI("https://static.wikia.nocookie.net/xtaleunderverse4071/images/8/8a/Fatal_Error_Underverse.jpg");
+                ImageIcon displayIcon = new ImageIcon(linkImage.toURL());
+                personaje.setDisplayImagePj(displayIcon);
+
+                URI linkImagePortrait = new URI("https://static.wikia.nocookie.net/xtaleunderverse4071/images/8/8a/Fatal_Error_Underverse.jpg");
+                ImageIcon displayPortrait = new ImageIcon(linkImagePortrait.toURL());
+                personaje.setGreatPjImage(displayPortrait);
+            }
             
             JsonArray arrayAbilities = son.getAsJsonArray("abilities");
             List<Hability> listaHabilidades = new ArrayList<>();
@@ -87,23 +103,18 @@ public class APIValorant {
                     JsonElement displayIconLink = habilidadSon.get("displayIcon");
                     displayIconUri = new URI(displayIconLink.getAsString());
                     displayIconHability = new ImageIcon(displayIconUri.toURL());
-                }catch(Exception e){
+                }catch(Exception e){                    
                     displayIconUri = new URI("https://static.wikia.nocookie.net/xtaleunderverse4071/images/8/8a/Fatal_Error_Underverse.jpg");
+                    displayIconHability = new ImageIcon(displayIconUri.toURL());
                 }
-                //System.out.println(displayIconUri);
                 Hability habilidadPJ = new Hability(nombreHabilidad, descripcion, displayIconHability);
+                                
                 listaHabilidades.add(habilidadPJ);
-                
- 
             }
             personaje.setHability(listaHabilidades);
             
             personajes.getListPj().add(personaje);
         }
-        
-        
-
-
     }
 
     private static JsonArray connectionWithApi() throws IOException, InterruptedException, JsonSyntaxException {
