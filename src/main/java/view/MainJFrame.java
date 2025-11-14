@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 public class MainJFrame extends javax.swing.JFrame {
 
     private static final int ALTO_IMAGEN_LATERAL = 650;
-    private static final int ANCHO_IMAGEN_LATERAL = 450;
+    private static final int ANCHO_IMAGEN_LATERAL = 550;
     /**
      * Creates new form Screen
      */
@@ -40,8 +40,14 @@ public class MainJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         titleJLabel = new javax.swing.JLabel();
-        layeredPanelPjs = new javax.swing.JLayeredPane();
-        panelPjs = new javax.swing.JPanel();
+        searchTextField = new javax.swing.JTextField();
+        roleComboBoxItem = new javax.swing.JComboBox<>();
+        registerJButton = new javax.swing.JButton();
+        loginJButton = new javax.swing.JButton();
+        grandImagePJ = new javax.swing.JPanel();
+        showJButton = new javax.swing.JButton();
+        displayImagePJ = new javax.swing.JLabel();
+        returnJButton = new javax.swing.JButton();
         panelHabilitis = new javax.swing.JPanel();
         descripcionLabel = new javax.swing.JLabel();
         habilidadesLabel = new javax.swing.JLabel();
@@ -58,14 +64,7 @@ public class MainJFrame extends javax.swing.JFrame {
         nombrehabilidad4Label = new javax.swing.JLabel();
         descripcionhabilidad4Label = new javax.swing.JLabel();
         descriptionTextLabel = new javax.swing.JLabel();
-        searchTextField = new javax.swing.JTextField();
-        roleComboBoxItem = new javax.swing.JComboBox<>();
-        registerJButton = new javax.swing.JButton();
-        loginJButton = new javax.swing.JButton();
-        grandImagePJ = new javax.swing.JPanel();
-        showJButton = new javax.swing.JButton();
-        displayImagePJ = new javax.swing.JLabel();
-        returnJButton = new javax.swing.JButton();
+        panelPjs = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(this.MAXIMIZED_BOTH);
@@ -74,20 +73,43 @@ public class MainJFrame extends javax.swing.JFrame {
         titleJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleJLabel.setText("ValorantApi");
 
-        layeredPanelPjs.setBackground(new java.awt.Color(255, 255, 255));
+        searchTextField.setToolTipText("Escribe el agente a buscar");
+        searchTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTextFieldActionPerformed(evt);
+            }
+        });
 
-        panelPjs.setBackground(new java.awt.Color(0, 0, 255));
+        roleComboBoxItem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rol" }));
 
-        javax.swing.GroupLayout panelPjsLayout = new javax.swing.GroupLayout(panelPjs);
-        panelPjs.setLayout(panelPjsLayout);
-        panelPjsLayout.setHorizontalGroup(
-            panelPjsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 691, Short.MAX_VALUE)
-        );
-        panelPjsLayout.setVerticalGroup(
-            panelPjsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-        );
+        registerJButton.setText("Registrarse");
+        registerJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerJButtonActionPerformed(evt);
+            }
+        });
+
+        loginJButton.setText("Login");
+
+        grandImagePJ.setBackground(new java.awt.Color(0, 0, 0));
+        grandImagePJ.setLayout(null);
+
+        showJButton.setText("Ver");
+        grandImagePJ.add(showJButton);
+        showJButton.setBounds(0, 681, 150, 23);
+
+        displayImagePJ.setText("");
+        grandImagePJ.add(displayImagePJ);
+        displayImagePJ.setBounds(0, 0, 444, 675);
+
+        returnJButton.setText("Volver");
+        returnJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnJButtonActionPerformed(evt);
+            }
+        });
+        grandImagePJ.add(returnJButton);
+        returnJButton.setBounds(162, 681, 128, 23);
 
         panelHabilitis.setBackground(new java.awt.Color(0, 255, 0));
 
@@ -161,7 +183,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addGroup(panelHabilitisLayout.createSequentialGroup()
                         .addGap(189, 189, 189)
                         .addComponent(descripcionLabel)))
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         panelHabilitisLayout.setVerticalGroup(
             panelHabilitisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,7 +209,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(imagenhabilidad3Label)
                     .addComponent(nombrehabilidad3Label)
                     .addComponent(descripcionhabilidad3Label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 413, Short.MAX_VALUE)
                 .addGroup(panelHabilitisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(imagenhabilidad4Label)
                     .addComponent(nombrehabilidad4Label)
@@ -195,68 +217,18 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        layeredPanelPjs.setLayer(panelPjs, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPanelPjs.setLayer(panelHabilitis, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panelPjs.setBackground(new java.awt.Color(0, 0, 255));
 
-        javax.swing.GroupLayout layeredPanelPjsLayout = new javax.swing.GroupLayout(layeredPanelPjs);
-        layeredPanelPjs.setLayout(layeredPanelPjsLayout);
-        layeredPanelPjsLayout.setHorizontalGroup(
-            layeredPanelPjsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layeredPanelPjsLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(panelHabilitis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layeredPanelPjsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelPjs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        javax.swing.GroupLayout panelPjsLayout = new javax.swing.GroupLayout(panelPjs);
+        panelPjs.setLayout(panelPjsLayout);
+        panelPjsLayout.setHorizontalGroup(
+            panelPjsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 691, Short.MAX_VALUE)
         );
-        layeredPanelPjsLayout.setVerticalGroup(
-            layeredPanelPjsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layeredPanelPjsLayout.createSequentialGroup()
-                .addComponent(panelPjs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelHabilitis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        panelPjsLayout.setVerticalGroup(
+            panelPjsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-
-        searchTextField.setToolTipText("Escribe el agente a buscar");
-        searchTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchTextFieldActionPerformed(evt);
-            }
-        });
-
-        roleComboBoxItem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rol" }));
-
-        registerJButton.setText("Registrarse");
-        registerJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerJButtonActionPerformed(evt);
-            }
-        });
-
-        loginJButton.setText("Login");
-
-        grandImagePJ.setBackground(new java.awt.Color(0, 0, 0));
-        grandImagePJ.setLayout(null);
-
-        showJButton.setText("Ver");
-        grandImagePJ.add(showJButton);
-        showJButton.setBounds(0, 681, 150, 23);
-
-        displayImagePJ.setText("");
-        grandImagePJ.add(displayImagePJ);
-        displayImagePJ.setBounds(0, 0, 444, 675);
-
-        returnJButton.setText("Volver");
-        returnJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                returnJButtonActionPerformed(evt);
-            }
-        });
-        grandImagePJ.add(returnJButton);
-        returnJButton.setBounds(162, 681, 128, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -265,10 +237,13 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(layeredPanelPjs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(grandImagePJ, javax.swing.GroupLayout.DEFAULT_SIZE, 1102, Short.MAX_VALUE))
+                        .addGap(47, 47, 47)
+                        .addComponent(panelPjs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(grandImagePJ, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(132, 132, 132)
+                        .addComponent(panelHabilitis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,17 +264,18 @@ public class MainJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(roleComboBoxItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registerJButton)
                     .addComponent(loginJButton))
                 .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(layeredPanelPjs, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(grandImagePJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(105, 105, 105))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(grandImagePJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelPjs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelHabilitis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(290, 290, 290))
         );
 
         pack();
@@ -331,20 +307,20 @@ public class MainJFrame extends javax.swing.JFrame {
     private void quitLayoutLateral() {
         // Pruebas sin layout
         this.grandImagePJ.setLayout(null);
+        this.grandImagePJ.setOpaque(false);
         this.grandImagePJ.setBounds(750, 280, ANCHO_IMAGEN_LATERAL, ALTO_IMAGEN_LATERAL);
         // x y ancho alto
     }
 
 
     private void setLayout() {
-        this.layeredPanelPjs.setLayer(this.panelPjs, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panelPjs.setBounds(0, 0, 200, 200);
-        this.layeredPanelPjs.setLayer(this.panelHabilitis, javax.swing.JLayeredPane.PALETTE_LAYER);
-        panelHabilitis.setBounds(0, 0, 200, 200);
+ 
+        panelPjs.setBounds(0, 0, 1100, 1100);
+        panelHabilitis.setBounds(0, 0, 1100, 1100);
 
-        panelHabilitis.setVisible(false);
+        panelHabilitis.setVisible(true);
         panelPjs.setVisible(true);
-        this.setSize(1100, 1000);
+        //this.setSize(1100, 1000);
 
     }
 
@@ -469,7 +445,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel imagenhabilidad2Label;
     private javax.swing.JLabel imagenhabilidad3Label;
     private javax.swing.JLabel imagenhabilidad4Label;
-    private javax.swing.JLayeredPane layeredPanelPjs;
     private javax.swing.JButton loginJButton;
     private javax.swing.JLabel nombrehabilidad1Label;
     private javax.swing.JLabel nombrehabilidad2Label;
