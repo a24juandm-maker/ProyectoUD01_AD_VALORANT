@@ -37,7 +37,7 @@ public class FrontController {
     private Pjs dataPjs;
     private Users dataUsuarios;
 
-    public FrontController(MainJFrame view, Pjs data) {
+    public FrontController(MainJFrame view, Pjs data,Users dataUsuarios) {
         this.view = view;
         this.dataPjs = data;
         this.dataUsuarios = dataUsuarios;

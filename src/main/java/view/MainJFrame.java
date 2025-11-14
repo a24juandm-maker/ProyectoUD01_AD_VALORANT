@@ -8,20 +8,26 @@ import java.awt.Image;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
  *
  * @author dam2_alu05@inf.ald
  */
+
+
 public class MainJFrame extends javax.swing.JFrame {
 
+    private static final int ALTO_IMAGEN_LATERAL = 650;
+    private static final int ANCHO_IMAGEN_LATERAL = 450;
     /**
      * Creates new form Screen
      */
     public MainJFrame() {
         initComponents();
-        setLayout();
+        setLayout();    
+        quitBackgroundColorPanelCuadricula();
     }
 
     /**
@@ -62,8 +68,10 @@ public class MainJFrame extends javax.swing.JFrame {
         returnJButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(this.MAXIMIZED_BOTH);
 
         titleJLabel.setFont(new java.awt.Font("Inter Regular", 1, 36)); // NOI18N
+        titleJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleJLabel.setText("ValorantApi");
 
         layeredPanelPjs.setBackground(new java.awt.Color(255, 255, 255));
@@ -231,10 +239,15 @@ public class MainJFrame extends javax.swing.JFrame {
         loginJButton.setText("Login");
 
         grandImagePJ.setBackground(new java.awt.Color(0, 0, 0));
+        grandImagePJ.setLayout(null);
 
         showJButton.setText("Ver");
+        grandImagePJ.add(showJButton);
+        showJButton.setBounds(0, 681, 150, 23);
 
         displayImagePJ.setText("");
+        grandImagePJ.add(displayImagePJ);
+        displayImagePJ.setBounds(0, 0, 444, 675);
 
         returnJButton.setText("Volver");
         returnJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -242,38 +255,20 @@ public class MainJFrame extends javax.swing.JFrame {
                 returnJButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout grandImagePJLayout = new javax.swing.GroupLayout(grandImagePJ);
-        grandImagePJ.setLayout(grandImagePJLayout);
-        grandImagePJLayout.setHorizontalGroup(
-            grandImagePJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(grandImagePJLayout.createSequentialGroup()
-                .addGroup(grandImagePJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(grandImagePJLayout.createSequentialGroup()
-                        .addComponent(showJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(returnJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 150, Short.MAX_VALUE))
-                    .addComponent(displayImagePJ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        grandImagePJLayout.setVerticalGroup(
-            grandImagePJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(grandImagePJLayout.createSequentialGroup()
-                .addComponent(displayImagePJ, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(grandImagePJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(showJButton)
-                    .addComponent(returnJButton))
-                .addContainerGap())
-        );
+        grandImagePJ.add(returnJButton);
+        returnJButton.setBounds(162, 681, 128, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(layeredPanelPjs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(grandImagePJ, javax.swing.GroupLayout.DEFAULT_SIZE, 1102, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,24 +277,19 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(registerJButton)
                         .addGap(33, 33, 33)
-                        .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(layeredPanelPjs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(grandImagePJ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(397, 397, 397))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(roleComboBoxItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -317,9 +307,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
     public void addSetImageDisplayLabel(ImageIcon icon) {
 
-
+        quitLayoutLateral();
         Image image = icon.getImage();
-
+        
         //Tratamiento Imagen
         
         Image imageRedimensity = image.getScaledInstance(this.grandImagePJ.getWidth(), this.grandImagePJ.getHeight(), Image.SCALE_SMOOTH);
@@ -327,9 +317,24 @@ public class MainJFrame extends javax.swing.JFrame {
         // Creacion  ImageIcon redimensionado
         ImageIcon imagenBotonFinal = new ImageIcon(imageRedimensity);
 
-        this.displayImagePJ.setIcon(imagenBotonFinal);
+        if(this.displayImagePJ != null){
+            this.displayImagePJ.setIcon(imagenBotonFinal);
+        }
+        else{
+            this.displayImagePJ.setIcon(null);
+            this.displayImagePJ.setIcon(imagenBotonFinal);
+        }
+        
 
     }
+
+    private void quitLayoutLateral() {
+        // Pruebas sin layout
+        this.grandImagePJ.setLayout(null);
+        this.grandImagePJ.setBounds(750, 280, ANCHO_IMAGEN_LATERAL, ALTO_IMAGEN_LATERAL);
+        // x y ancho alto
+    }
+
 
     private void setLayout() {
         this.layeredPanelPjs.setLayer(this.panelPjs, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -358,6 +363,10 @@ public class MainJFrame extends javax.swing.JFrame {
     public void setImageTitle(ImageIcon icon) {
         this.titleJLabel.setText(null);
         this.titleJLabel.setIcon(icon);
+
+ 
+        // X Y ANCHO ALTO
+
         this.titleJLabel.setVisible(true);
     }
 
@@ -475,4 +484,12 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton showJButton;
     private javax.swing.JLabel titleJLabel;
     // End of variables declaration//GEN-END:variables
+
+    private void quitBackgroundColorPanelCuadricula() {
+        this.panelPjs.setBackground(null);
+        //Set opaque aplica que herede o color do pai, neste caso JFrame
+        this.panelPjs.setOpaque(false);
+        this.panelHabilitis.setBackground(null);
+        this.panelHabilitis.setOpaque(false);
+    }
 }

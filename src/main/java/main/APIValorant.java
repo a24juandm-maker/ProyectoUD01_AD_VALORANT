@@ -25,6 +25,8 @@ import javax.swing.JLabel;
 import model.Hability;
 import model.Pj;
 import model.Pjs;
+import model.User;
+import model.Users;
 import view.MainJFrame;
 
 /**
@@ -40,9 +42,13 @@ public class APIValorant {
         List<Pj> listaPersonajes = new ArrayList<>();
         Pjs dataPersonajes = new Pjs();
         dataPersonajes.setListPj(listaPersonajes);
+        List<User> users = new ArrayList();
+        Users dataUsuario = new Users();
+        dataUsuario.setListUsers(users);
+        
         JsonArray arrayRaiz = connectionWithApi();
         recoveryDataApi(arrayRaiz, dataPersonajes);
-        FrontController fc = new FrontController(view,dataPersonajes);
+        FrontController fc = new FrontController(view,dataPersonajes,dataUsuario);
         
         view.setVisible(true);
         //initGUI(listaPersonajes);
