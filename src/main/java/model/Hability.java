@@ -10,17 +10,22 @@ import javax.swing.ImageIcon;
  *
  * @author christian
  */
-class Hability {
+public class Hability {
     
     private String name;
     private String description;
     private String buttonAssigned;
     private ImageIcon displayImageHability;
 
-    public Hability(String name, String description, String buttonAssigned, ImageIcon displayImageHability) {
+    
+    public Hability() {
+        this.name = "";
+        this.description = "";
+        this.buttonAssigned = "";
+    }
+    public Hability(String name, String description, ImageIcon displayImageHability) {
         this.name = name;
         this.description = description;
-        this.buttonAssigned = buttonAssigned;
         this.displayImageHability = displayImageHability;
     }
 

@@ -14,46 +14,43 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.io.Serializable;
+import java.io.*;
 
 /**
  *
  * @author christian
  */
-public class UserUtilities {
-    public static List<User> readUser(){
-        List<User> listUsers = new ArrayList<>();
+public class UserUtilities implements Serializable {
+
+    private static String fileSaveUsers = "usuarios.user";
+    public static List<User> readUser() {
         
-        BufferedReader bf = null;
+        List<User> listUsers = new ArrayList<>();
+
         try {
-            bf = new BufferedReader(new FileReader("usuario.txt"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileSaveUsers));
+            listUsers = (List<User>) ois.readObject();
             
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(UserUtilities.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                bf.close();
-            } catch (IOException ex) {
-                Logger.getLogger(UserUtilities.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (IOException ex) {
+            System.out.println("Fallo lectura fichero" + ex.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("No encuentra la clase en ReadUser" + ex.getMessage());
         }
+        
         return listUsers;
     }
-    
-    public static void writeUser(List<User> listUsers){
-        
-        String fileUsers = "usuarios.txt" ;
-        
-        for(User user : listUsers){
-        
-            try {
-                BufferedWriter bw = new BufferedWriter(new FileWriter(fileUsers));
-                bw.write(String.valueOf(user.getUsuario())+ ","+String.valueOf(user.getPassword()));
-                
-            } catch (IOException ex) {
-                Logger.getLogger(UserUtilities.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
+
+    public static void writeUser(List<User> listUsers) {
+
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileSaveUsers));
+            out.writeObject(listUsers);
+            out.close();
+
+        } catch (IOException ex) {
+            System.out.println("Fallo escritura fichero" + ex.getMessage());
         }
-    
+
     }
 }

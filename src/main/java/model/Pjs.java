@@ -4,7 +4,10 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 
 /**
  *
@@ -12,9 +15,10 @@ import java.util.List;
  */
 public class Pjs {
     List<Pj> listPj;
+    Set<String> listRoles = new HashSet<>();
 
-    public Pjs(List listPj) {
-        this.listPj = listPj;
+    public Pjs() {
+        this.listPj = listPj = new ArrayList<>();
     }
 
     public List getListPj() {
@@ -24,5 +28,10 @@ public class Pjs {
     public void setListPj(List listPj) {
         this.listPj = listPj;
     }
-    
+    public void addRole(String role){
+        listRoles.add(role);
+    }
+    public Set<String> getListRole(){
+        return this.listRoles;
+    }
 }

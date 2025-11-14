@@ -1,0 +1,71 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package controller.user;
+
+import controller.FrontController;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+import javax.swing.JOptionPane;
+import model.User;
+import model.Users;
+import view.user.UserJDialog;
+
+/**
+ *
+ * @author dam2_alu02@inf.ald
+ */
+public class LoginController {
+    private UserJDialog view;
+    private Users dataUsuarios;
+    private FrontController parentController;
+
+    public LoginController(UserJDialog view, Users dataUsuarios, FrontController parentController) {
+        this.view = view;
+        this.dataUsuarios = dataUsuarios;
+        this.parentController = parentController;
+        
+        this.view.setCancelJButtonActionListener(this.getCancelJButtonActionListener());
+        this.view.setLoginJButtonActionListener(this.getLoginJButtonActionListener());
+    }
+    
+    private ActionListener getCancelJButtonActionListener(){
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.dispose();
+            }
+        };
+        return al;
+    }
+    
+    private ActionListener getLoginJButtonActionListener(){
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nameNewUser = view.getTextUserJTextField();
+                String passwordNewUser = view.getTextPasswordJTextField();
+                
+                boolean match = false;
+                List<User> listUsers = dataUsuarios.getListUsers();
+                for (User usuarioExistente : listUsers) {
+                    if (usuarioExistente.getUsuario().equals(nameNewUser) && usuarioExistente.getPassword().equals(passwordNewUser)) {
+                        match = true;
+                        break;
+                    }
+                }
+                
+                if(!match){
+                    view.clearFields();
+                    JOptionPane.showMessageDialog(view, "Usuario o Contraseña incorrectos","Error de Login",JOptionPane.ERROR_MESSAGE);
+                } else {
+                    view.clearFields();
+                    JOptionPane.showMessageDialog(view, "Login Realizado");
+                }
+            }
+        };
+        return al;
+    }
+}

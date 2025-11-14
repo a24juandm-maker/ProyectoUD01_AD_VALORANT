@@ -17,15 +17,30 @@ public class Pj extends JButton{
     private String id;
     private String name;
     private List<Hability> hability;
+
+    
     private String description;
     private ImageIcon displayImagePj;
+    private String role;
+    private ImageIcon greatPjImage;
 
     public Pj() {
         this.id = "";
         this.name = "";
         this.hability = new ArrayList<>();
         this.description = "";
+        this.role = "";
     }
+
+    public Pj(String id, String name, List<Hability> hability, String description, ImageIcon displayImagePj, String role) {
+        this.id = id;
+        this.name = name;
+        this.hability = hability;
+        this.description = description;
+        this.displayImagePj = displayImagePj;
+        this.role = role;
+    }
+     
     
     
     
@@ -78,7 +93,21 @@ public class Pj extends JButton{
     public void setDisplayImagePj(ImageIcon displayImagePj) {
         this.displayImagePj = displayImagePj;
     }
-    
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public ImageIcon getGreatPjImage() {
+        return greatPjImage;
+    }
+
+    public void setGreatPjImage(ImageIcon greatPjImage) {
+        this.greatPjImage = greatPjImage;
+    }
     
     
     
