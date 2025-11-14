@@ -38,7 +38,8 @@ public class APIValorant {
         view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         List<Pj> listaPersonajes = new ArrayList<>();
-        Pjs dataPersonajes = new Pjs(listaPersonajes);
+        Pjs dataPersonajes = new Pjs();
+        dataPersonajes.setListPj(listaPersonajes);
         JsonArray arrayRaiz = connectionWithApi();
         recoveryDataApi(arrayRaiz, dataPersonajes);
         FrontController fc = new FrontController(view,dataPersonajes);

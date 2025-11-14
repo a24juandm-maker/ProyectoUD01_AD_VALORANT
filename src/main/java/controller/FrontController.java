@@ -5,6 +5,7 @@
 package controller;
 
 import controller.user.LoginController;
+import controller.user.RegisterController;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +23,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import model.Pj;
 import model.Pjs;
+import model.Users;
 import view.MainJFrame;
 import view.user.UserJDialog;
 
@@ -32,18 +34,20 @@ import view.user.UserJDialog;
 public class FrontController {
 
     private MainJFrame view;
-    private Pjs data;
+    private Pjs dataPjs;
+    private Users dataUsuarios;
 
     public FrontController(MainJFrame view, Pjs data) {
         this.view = view;
+        this.dataPjs = data;
+        this.dataUsuarios = dataUsuarios;
         this.view.setRegisterJButtonActionListener(this.getRegisterJButtonActionListener());
         this.view.setLoginJButtonActionListener(this.getLoginJButtonActionListener());
         this.view.setShowJButtonActionListener(this.getShowJButtonActionListener());
         this.view.setReturnJButtonActionListener(this.getReturnJButtonActionListener());
-        this.data = data;
 
-        this.view.setRegisterJButtonActionListener(this.getRegisterJButtonActionListener());
-        this.view.setLoginJButtonActionListener(this.getLoginJButtonActionListener());
+
+        
         view.setImageTitle(this.addTitleImage());
 
         initComboBox();
@@ -51,7 +55,7 @@ public class FrontController {
     }
 
     public void addPjButtons() {
-        int tamanhoLista = data.getListPj().size();
+        int tamanhoLista = dataPjs.getListPj().size();
         System.out.println("Tenemos este numero de personajes " + tamanhoLista);
 
 
@@ -67,7 +71,7 @@ public class FrontController {
             for (int j = 0; j < columnas; j++) {
                 if (contador < tamanhoLista) {
                     
-                    Pj boton = (Pj) data.getListPj().get(contador);
+                    Pj boton = (Pj) dataPjs.getListPj().get(contador);
                     
                     boton.setLayout(null);
                     
@@ -116,39 +120,45 @@ public class FrontController {
     }
 
     private void initComboBox() {
-        for (String p : data.getListRole()) {
+        for (String p : dataPjs.getListRole()) {
             this.view.addItemRoleComboBox(p);
 
         }
     }
 
-    private ActionListener getRegisterJButtonActionListener() {
+    private ActionListener getRegisterJButtonActionListener(){
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Boton Registrar");
-                UserJDialog viewLogin = new UserJDialog(view, true);
-                LoginController lc = new LoginController(viewLogin, data, FrontController.this);
+                UserJDialog viewLogin = new UserJDialog(view,true);
+                RegisterController lc = new RegisterController(viewLogin,dataUsuarios,FrontController.this);
+                
+                viewLogin.setTextLoginJButton("Registrar");
+                viewLogin.setTextLoginTitleJLabel("Register");
+                
                 viewLogin.setVisible(true);
             }
         };
         return al;
     }
 
-    private ActionListener getLoginJButtonActionListener() {
+    private ActionListener getLoginJButtonActionListener(){
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Boton Login");
-                UserJDialog viewLogin = new UserJDialog(view, true);
-                LoginController lc = new LoginController(viewLogin, data, FrontController.this);
+                UserJDialog viewLogin = new UserJDialog(view,true);
+                LoginController lc = new LoginController(viewLogin,dataUsuarios,FrontController.this);
+                
+                viewLogin.setTextLoginJButton("Logear");
+                viewLogin.setTextLoginTitleJLabel("Login");
+                
                 viewLogin.setVisible(true);
             }
         };
         return al;
     }
 
-    private ActionListener getShowJButtonActionListener() {
+    private ActionListener getShowJButtonActionListener(){
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -158,7 +168,7 @@ public class FrontController {
         return al;
     }
 
-    private ActionListener getReturnJButtonActionListener() {
+    private ActionListener getReturnJButtonActionListener(){
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

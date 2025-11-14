@@ -4,6 +4,9 @@
  */
 package view.user;
 
+import java.awt.event.ActionListener;
+import java.util.Arrays;
+
 /**
  *
  * @author Christian
@@ -101,7 +104,35 @@ public class UserJDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setCancelJButtonActionListener(ActionListener al){
+      this.cancelJButton.addActionListener(al);
+    }
     
+    public void setLoginJButtonActionListener(ActionListener al){
+      this.loginJButton.addActionListener(al);
+    }
+    
+    public void setTextLoginJButton(String text){
+        this.loginJButton.setText(text);
+    }
+    
+    public void setTextLoginTitleJLabel(String text){
+        this.logintTitleJLabel.setText(text);
+    }
+    
+    public String getTextUserJTextField(){
+        return loginUserJTextField.getText();
+    }
+    
+    public String getTextPasswordJTextField(){
+        char[] passwordChars = passwordTextField.getPassword();
+        return String.copyValueOf(passwordChars);
+    }
+    
+    public void clearFields(){
+        this.loginUserJTextField.setText("");
+        this.passwordTextField.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelJButton;
