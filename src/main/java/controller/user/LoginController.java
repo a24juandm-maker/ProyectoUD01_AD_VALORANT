@@ -5,10 +5,12 @@
 package controller.user;
 
 import controller.FrontController;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
-import model.Pjs;
+import javax.swing.JOptionPane;
 import model.User;
+import model.Users;
 import view.user.UserJDialog;
 
 /**
@@ -17,42 +19,53 @@ import view.user.UserJDialog;
  */
 public class LoginController {
     private UserJDialog view;
-    private Pjs data;
-    private List<User> listUsers;
+    private Users dataUsuarios;
     private FrontController parentController;
 
-    public LoginController(UserJDialog view, Pjs data, FrontController parentController) {
+    public LoginController(UserJDialog view, Users dataUsuarios, FrontController parentController) {
         this.view = view;
-        this.data = data;
-        listUsers = new ArrayList<>();
+        this.dataUsuarios = dataUsuarios;
         this.parentController = parentController;
-
         
-        
-        recoveryPjs();
+        this.view.setCancelJButtonActionListener(this.getCancelJButtonActionListener());
+        this.view.setLoginJButtonActionListener(this.getLoginJButtonActionListener());
     }
     
-    private void recoveryPjs() {
-        listUsers = data.getListPj();
+    private ActionListener getCancelJButtonActionListener(){
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.dispose();
+            }
+        };
+        return al;
     }
     
-    /*private void loginUser(){
-    
-    String name = view.getNameUser();
-    String password = view.getPassword();
-    
-    boolean exists = false;
-    
-    for (User u : listUsers) {
-    if (u.getName().equals(name)) {
-    exists = true;
-    break;
+    private ActionListener getLoginJButtonActionListener(){
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nameNewUser = view.getTextUserJTextField();
+                String passwordNewUser = view.getTextPasswordJTextField();
+                
+                boolean match = false;
+                List<User> listUsers = dataUsuarios.getListUsers();
+                for (User usuarioExistente : listUsers) {
+                    if (usuarioExistente.getUsuario().equals(nameNewUser) && usuarioExistente.getPassword().equals(passwordNewUser)) {
+                        match = true;
+                        break;
+                    }
+                }
+                
+                if(!match){
+                    view.clearFields();
+                    JOptionPane.showMessageDialog(view, "Usuario o Contraseña incorrectos","Error de Login",JOptionPane.ERROR_MESSAGE);
+                } else {
+                    view.clearFields();
+                    JOptionPane.showMessageDialog(view, "Login Realizado");
+                }
+            }
+        };
+        return al;
     }
-    }
-    if (exists == true) {
-    System.out.println("Te has logueado correctamente");
-    }
-    }*/
-    
-    
 }
