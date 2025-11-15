@@ -69,7 +69,9 @@ public class FrontController {
         addPjButtons(dataPj);
     }
 
+
     public void addPjButtons(List<Pj> dataPjs) {
+        view.clearPanelPj();
         int tamanhoLista = dataPjs.size();
         System.out.println("Tenemos este numero de personajes " + tamanhoLista);
         
@@ -299,7 +301,7 @@ public class FrontController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 DelPJ delPJView = new DelPJ(view,true);
-                DeleteController dc = new DeleteController(delPJView,dataPjs);
+                DeleteController dc = new DeleteController(delPJView,dataPjs,FrontController.this);
                 delPJView.setVisible(true);
             }
         };
@@ -310,7 +312,7 @@ public class FrontController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CreateAndEditPJDialog createPJ = new CreateAndEditPJDialog(view,true);
-                CreatePJController cc = new CreatePJController(createPJ,dataPjs);
+                CreatePJController cc = new CreatePJController(createPJ,dataPjs,FrontController.this);
                 createPJ.setVisible(true);
             }
         };
@@ -321,7 +323,7 @@ public class FrontController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CreateAndEditPJDialog modify = new CreateAndEditPJDialog(view,true);
-                ModifyPJController mPjContr = new ModifyPJController(modify,dataPjs);
+                ModifyPJController mPjContr = new ModifyPJController(modify,dataPjs,FrontController.this);
                 modify.setVisible(true);
             }
         };

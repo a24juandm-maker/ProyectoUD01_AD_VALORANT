@@ -4,6 +4,7 @@
  */
 package controller.modifyPJS;
 
+import controller.FrontController;
 import model.Pjs;
 import view.modifyPjs.CreateAndEditPJDialog;
 
@@ -15,9 +16,11 @@ public class CreatePJController {
 
     private CreateAndEditPJDialog view;
     private Pjs dataPjs;
-    public CreatePJController(CreateAndEditPJDialog view, Pjs dataPjs) {
+    public CreatePJController(CreateAndEditPJDialog view, Pjs dataPjs, FrontController aThis) {
         this.view = view;
         this.dataPjs = dataPjs;
     }
+    
+    
     
 }

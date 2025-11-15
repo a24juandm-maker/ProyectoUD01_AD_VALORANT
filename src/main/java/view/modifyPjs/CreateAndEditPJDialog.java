@@ -310,10 +310,28 @@ public class CreateAndEditPJDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void cancelJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelJButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelJButtonActionPerformed
 
+    public void enableDisablePlantillaJLabel(Boolean enableDisable){
+        this.plantillaJLabel.setEnabled(enableDisable);
+        this.plantillaJLabel.setVisible(enableDisable);
+    }
+    public void enableDisableComboBoxPlantilla(Boolean enableDisable){
+        this.plantillasComboBox.setEnabled(enableDisable);
+        this.plantillasComboBox.setVisible(enableDisable);
+    }
+    
+            
+    public void setTitleCreateAndEditJLabel(String s){
+        this.createAgentJLabel.setText(s);
+    }
+    public void setTextCrearJButton(String s){
+        this.createJButton.setText(s);
+    }
+    
     public String getNameAgent() {
         return this.nameAgentJTextField.getText();
     }
