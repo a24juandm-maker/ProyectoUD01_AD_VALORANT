@@ -5,10 +5,12 @@
 package controller.user;
 
 import controller.FrontController;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
-import model.Pjs;
+import javax.swing.JOptionPane;
 import model.User;
+import model.Users;
 import view.user.UserJDialog;
 
 /**
@@ -18,21 +20,56 @@ import view.user.UserJDialog;
 public class RegisterController {
 
     private UserJDialog view;
-    private Pjs data;
-    private List<User> listUsers;
+    private Users dataUsuarios;
     private FrontController parentController;
 
-    public RegisterController(UserJDialog view, Pjs data, FrontController parentController) {
+    public RegisterController(UserJDialog view, Users dataUsuarios, FrontController parentController) {
         this.view = view;
-        this.data = data;
-        listUsers = new ArrayList<>();
+        this.dataUsuarios = dataUsuarios;
         this.parentController = parentController;
         
-        recoveryPjs();
+        this.view.setCancelJButtonActionListener(this.getCancelJButtonActionListener());
+        this.view.setLoginJButtonActionListener(this.getLoginJButtonActionListener());
     }
-
-    private void recoveryPjs() {
-        listUsers = data.getListPj();
+    
+    private ActionListener getCancelJButtonActionListener(){
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.dispose();
+            }
+        };
+        return al;
+    }
+    
+    private ActionListener getLoginJButtonActionListener(){
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nameNewUser = view.getTextUserJTextField();
+                String passwordNewUser = view.getTextPasswordJTextField();
+                
+                boolean exists = false;
+                List<User> listUsers = dataUsuarios.getListUsers();
+                for (User usuarioExistente : listUsers) {
+                    if (usuarioExistente.getUsuario().equals(nameNewUser)) {
+                        exists = true;
+                        break;
+                    }
+                }
+                
+                if(!exists){
+                    User usuarioNuevo = new User(nameNewUser,passwordNewUser);
+                    dataUsuarios.getListUsers().add(usuarioNuevo);
+                    view.clearFields();
+                    JOptionPane.showMessageDialog(view, "Usuario creado con exito!");
+                } else {
+                    view.clearFields();
+                    JOptionPane.showMessageDialog(view, "Este usuario ya existe","Error de Registro",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        };
+        return al;
     }
 
     /*private void createUser() {
