@@ -168,23 +168,21 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="nombrehabilidad4Label" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="imagenhabilidad1Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="imagenhabilidad2Label" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="nombrehabilidad1Label" min="-2" max="-2" attributes="0"/>
-                                          <Component id="nombrehabilidad2Label" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="imagenhabilidad1Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="imagenhabilidad2Label" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="imagenhabilidad3Label" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="nombrehabilidad3Label" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="nombrehabilidad1Label" min="-2" max="-2" attributes="0"/>
+                                      <Component id="nombrehabilidad2Label" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="imagenhabilidad3Label" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="nombrehabilidad3Label" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
@@ -390,6 +388,7 @@
     <Component class="javax.swing.JButton" name="EditPJButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Editar"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="DelPJButton">

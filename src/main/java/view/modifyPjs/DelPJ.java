@@ -95,7 +95,9 @@ public class DelPJ extends javax.swing.JDialog {
     public void setCancelarJButtonActionListener(ActionListener al){
         this.cancelJButton.addActionListener(al);
     }
-        
+    public String getDelNameAgent(){
+        return this.agenteEliminarTextField.getText();
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

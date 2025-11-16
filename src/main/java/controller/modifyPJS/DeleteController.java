@@ -4,8 +4,12 @@
  */
 package controller.modifyPJS;
 
+import controller.FrontController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import javax.swing.JOptionPane;
+import model.Pj;
 import model.Pjs;
 import view.modifyPjs.DelPJ;
 
@@ -16,10 +20,13 @@ import view.modifyPjs.DelPJ;
 public class DeleteController {
     private DelPJ view;
     private Pjs dataPjs;
-
-    public DeleteController(DelPJ delPJView, Pjs dataPjs) {
+    private FrontController fc;
+    
+    public DeleteController(DelPJ delPJView, Pjs dataPjs, FrontController aThis) {
         this.view = delPJView;
         this.dataPjs = dataPjs;
+        this.fc = aThis;
+        
         
         this.view.setCancelarJButtonActionListener(this.addCancelActionListener());
         this.view.setEliminarJButtonActionListener(this.addDeleteActionListener());
@@ -32,6 +39,31 @@ public class DeleteController {
                 System.out.println("Pendiente hacer");
                 //recorrer dataPjs en busca del nombre introducido
                 // tiene que ser igual
+                String agentEliminate = view.getDelNameAgent();
+                if(!agentEliminate.isEmpty()){
+                    boolean encontrado = false;
+                    List<Pj> listPjs = dataPjs.getListPj();
+                    Pj pjAeliminar = new Pj();
+                    for (Pj p : listPjs) {
+                        if (p.getName().equals(agentEliminate)) {
+                            System.out.println(agentEliminate + "encontrado se procede a eliminar");
+                            encontrado = true;
+                            pjAeliminar = p;
+                        }
+                    }
+                    if (encontrado == true) {
+                        System.out.println("pjAeliminar" + pjAeliminar.getName());
+
+                        listPjs.remove(pjAeliminar);
+                        fc.addPjButtons(listPjs);
+                        view.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(view, "No se encontro el personaje a eliminar", "Pj no encontrado", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(view, "El campo esta vacio", "Campo Vacio", JOptionPane.ERROR_MESSAGE);
+                }
+                
             }
         };
         return al;

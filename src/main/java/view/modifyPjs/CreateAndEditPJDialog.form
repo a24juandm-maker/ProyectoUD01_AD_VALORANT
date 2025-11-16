@@ -25,6 +25,102 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="plantillaJLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="plantillasComboBox" min="-2" pref="289" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="descriptionPJLabel" max="32767" attributes="0"/>
+                                      <Component id="nombrePJLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="imageIconJLabel" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="roleJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="imagenCuerpoEnteroJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="hability1JLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="hability2JLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="descriptionHabilidad1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="nameHabilidad2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="descriptionHabilidad2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="nameHabilidad1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="nameAgentJTextField" pref="205" max="32767" attributes="0"/>
+                                          <Component id="descriptionAgenJTextField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="iconJTextField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="roleJTextField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="imageCuerpoEnteroJTextField" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="nameHability2JTextField" alignment="0" pref="208" max="32767" attributes="0"/>
+                                          <Component id="descriptionHability1JTextField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="descriptionHability2JTextField" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="nameHability1JTextField" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="descriptionHabilidad3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="nameHabilidad3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="nameHability3JTextField" pref="208" max="32767" attributes="0"/>
+                                                  <Component id="descriptionHability3JTextField" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="createJButton" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="cancelJButton" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="hability4JLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                                  <Component id="nameHabilidad4" min="-2" max="-2" attributes="0"/>
+                                                                  <Component id="descriptionHabilidad4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
+                                                      </Group>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="nameHability4JTextField" pref="208" max="32767" attributes="0"/>
+                                                          <Component id="descriptionHability4JTextField" max="32767" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Component id="hability3JLabel" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                       <Component id="createAgentJLabel" min="-2" pref="156" max="-2" attributes="0"/>
@@ -34,117 +130,16 @@
                       <Component id="habilitiesJLabel" min="-2" pref="135" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="plantillaJLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="plantillasComboBox" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="371" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="descriptionPJLabel" max="32767" attributes="0"/>
-                              <Component id="nombrePJLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="imageIconJLabel" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="roleJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="imagenCuerpoEnteroJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="hability1JLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="hability2JLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="descriptionHabilidad1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nameHabilidad2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="descriptionHabilidad2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nameHabilidad1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="159" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="nameAgentJTextField" max="32767" attributes="0"/>
-                                  <Component id="descriptionAgenJTextField" max="32767" attributes="0"/>
-                                  <Component id="iconJTextField" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="roleJTextField" max="32767" attributes="0"/>
-                                  <Component id="imageCuerpoEnteroJTextField" pref="190" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="371" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="createJButton" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="nameHability1JTextField" max="32767" attributes="0"/>
-                                      <Component id="nameHability2JTextField" pref="223" max="32767" attributes="0"/>
-                                      <Component id="descriptionHability1JTextField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="descriptionHability2JTextField" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="hability3JLabel" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="descriptionHabilidad3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="nameHabilidad3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="nameHability3JTextField" pref="223" max="32767" attributes="0"/>
-                                                  <Component id="descriptionHability3JTextField" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                              <Component id="cancelJButton" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="hability4JLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="nameHabilidad4" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="descriptionHabilidad4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="nameHability4JTextField" min="-2" pref="223" max="-2" attributes="0"/>
-                                          <Component id="descriptionHability4JTextField" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="createAgentJLabel" min="-2" pref="47" max="-2" attributes="0"/>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="plantillaJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="plantillasComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -154,12 +149,12 @@
                   <Component id="nombrePJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="nameAgentJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="descriptionAgenJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="descriptionPJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="roleJLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
@@ -171,57 +166,72 @@
                       <Component id="roleJTextField" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="imageCuerpoEnteroJTextField" min="-2" max="-2" attributes="0"/>
-                  <Component id="imagenCuerpoEnteroJLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="imagenCuerpoEnteroJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="habilitiesJLabel" min="-2" pref="44" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="hability1JLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="hability3JLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nameHabilidad1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nameHabilidad3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nameHability1JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nameHability3JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="descriptionHabilidad1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="descriptionHabilidad3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="descriptionHability1JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="descriptionHability3JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="hability2JLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="hability4JLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nameHabilidad2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nameHabilidad4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nameHability2JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nameHability4JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="descriptionHabilidad2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="descriptionHabilidad4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="descriptionHability2JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="descriptionHability4JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="hability1JLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="nameHability1JTextField" alignment="1" max="32767" attributes="0"/>
+                          <Component id="nameHabilidad1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="descriptionHabilidad1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="descriptionHability1JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="hability2JLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameHabilidad2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nameHability2JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="descriptionHabilidad2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="descriptionHability2JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="hability3JLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameHabilidad3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nameHability3JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="descriptionHabilidad3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="descriptionHability3JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="hability4JLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameHabilidad4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nameHability4JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="descriptionHabilidad4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="descriptionHability4JTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="createJButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cancelJButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

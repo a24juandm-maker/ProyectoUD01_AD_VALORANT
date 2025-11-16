@@ -1,4 +1,6 @@
+controller\modifyPJS\CreatePJController$1.class
 controller\modifyPJS\DeleteController$2.class
+controller\modifyPJS\ModifyPJController$2.class
 controller\user\RegisterController$2.class
 controller\FrontController$6.class
 model\Users.class
@@ -8,7 +10,9 @@ controller\user\LoginController$1.class
 controller\FrontController$8.class
 controller\modifyPJS\CreatePJController.class
 view\modifyPjs\CreateAndEditPJDialog$1.class
+controller\modifyPJS\ModifyPJController$1.class
 view\modifyPjs\DelPJ.class
+controller\modifyPJS\CreatePJController$2.class
 controller\modifyPJS\ModifyPJController.class
 controller\modifyPJS\DeleteController$1.class
 controller\user\RegisterController$1.class
