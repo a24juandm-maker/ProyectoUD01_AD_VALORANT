@@ -1,5 +1,4 @@
-# ProyectoUD01_AD_Valorant
-Rama creada a partir del main en donde se subiran las versiones unificadas de las demas ramas.
+# ProyectoUD01_AD_VALORANT
 # Creditos:
   
   Christian Castro Iglesias()

@@ -4,20 +4,19 @@
  */
 package view.modifyPjs;
 
-import java.awt.event.ActionListener;
+import java.awt.Dimension;
+ import java.awt.event.ActionListener;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Christian
  */
-public class CreateAndEditPJDialog extends javax.swing.JDialog {
-
-    /**
-     * Creates new form CreatePJDialog
-     */
+public class CreateAndEditPJDialog extends javax.swing.JDialog {    
     public CreateAndEditPJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        fixJTextField();
     }
 
     /**
@@ -154,94 +153,90 @@ public class CreateAndEditPJDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(createAgentJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(habilitiesJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(plantillaJLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(plantillasComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(371, 371, 371))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(descriptionPJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(nombrePJLabel)
-                                .addComponent(imageIconJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(roleJLabel)
-                            .addComponent(imagenCuerpoEnteroJLabel)
-                            .addComponent(hability1JLabel)
-                            .addComponent(hability2JLabel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(descriptionHabilidad1)
-                                    .addComponent(nameHabilidad2)
-                                    .addComponent(descriptionHabilidad2)
-                                    .addComponent(nameHabilidad1))))
+                        .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nameAgentJTextField)
-                                    .addComponent(descriptionAgenJTextField)
-                                    .addComponent(iconJTextField)
-                                    .addComponent(roleJTextField)
-                                    .addComponent(imageCuerpoEnteroJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-                                .addGap(371, 371, 371))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(createJButton)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(nameHability1JTextField)
-                                        .addComponent(nameHability2JTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-                                        .addComponent(descriptionHability1JTextField)
-                                        .addComponent(descriptionHability2JTextField)))
+                                .addComponent(plantillaJLabel)
                                 .addGap(18, 18, 18)
+                                .addComponent(plantillasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(descriptionPJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nombrePJLabel)
+                                        .addComponent(imageIconJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(roleJLabel)
+                                    .addComponent(imagenCuerpoEnteroJLabel)
+                                    .addComponent(hability1JLabel)
+                                    .addComponent(hability2JLabel)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(descriptionHabilidad1)
+                                            .addComponent(nameHabilidad2)
+                                            .addComponent(descriptionHabilidad2)
+                                            .addComponent(nameHabilidad1))))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(123, 123, 123)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(nameAgentJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                                            .addComponent(descriptionAgenJTextField)
+                                            .addComponent(iconJTextField)
+                                            .addComponent(roleJTextField)
+                                            .addComponent(imageCuerpoEnteroJTextField)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(nameHability2JTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                                            .addComponent(descriptionHability1JTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(descriptionHability2JTextField)
+                                            .addComponent(nameHability1JTextField, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(hability3JLabel)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
+                                                .addGap(69, 69, 69)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(descriptionHabilidad3)
                                                     .addComponent(nameHabilidad3))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(nameHability3JTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                                                    .addComponent(nameHability3JTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                                                     .addComponent(descriptionHability3JTextField)))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(16, 16, 16)
-                                                .addComponent(cancelJButton)))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(hability4JLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(createJButton)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(cancelJButton))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
+                                                .addGap(63, 63, 63)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(nameHabilidad4)
-                                                    .addComponent(descriptionHabilidad4))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(nameHability4JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(descriptionHability4JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(176, 176, 176))))))))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(hability4JLabel)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addGap(6, 6, 6)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                    .addComponent(nameHabilidad4)
+                                                                    .addComponent(descriptionHabilidad4))))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                            .addComponent(nameHability4JTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                                                            .addComponent(descriptionHability4JTextField)))
+                                                    .addComponent(hability3JLabel)))))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(createAgentJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(habilitiesJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(createAgentJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(plantillaJLabel)
                     .addComponent(plantillasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -262,49 +257,59 @@ public class CreateAndEditPJDialog extends javax.swing.JDialog {
                             .addComponent(imageIconJLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(roleJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imageCuerpoEnteroJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imagenCuerpoEnteroJLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(imagenCuerpoEnteroJLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(habilitiesJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hability1JLabel)
-                    .addComponent(hability3JLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameHabilidad1)
-                    .addComponent(nameHabilidad3)
-                    .addComponent(nameHability1JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameHability3JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(descriptionHabilidad1)
-                    .addComponent(descriptionHabilidad3)
-                    .addComponent(descriptionHability1JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(descriptionHability3JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hability2JLabel)
-                    .addComponent(hability4JLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameHabilidad2)
-                    .addComponent(nameHabilidad4)
-                    .addComponent(nameHability2JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameHability4JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(descriptionHabilidad2)
-                    .addComponent(descriptionHabilidad4)
-                    .addComponent(descriptionHability2JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(descriptionHability4JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(hability1JLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameHability1JTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(nameHabilidad1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(descriptionHabilidad1)
+                            .addComponent(descriptionHability1JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addComponent(hability2JLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nameHabilidad2)
+                            .addComponent(nameHability2JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(descriptionHabilidad2)
+                            .addComponent(descriptionHability2JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(hability3JLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nameHabilidad3)
+                            .addComponent(nameHability3JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(descriptionHabilidad3)
+                            .addComponent(descriptionHability3JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addComponent(hability4JLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nameHabilidad4)
+                            .addComponent(nameHability4JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(descriptionHabilidad4)
+                            .addComponent(descriptionHability4JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createJButton)
                     .addComponent(cancelJButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -314,7 +319,17 @@ public class CreateAndEditPJDialog extends javax.swing.JDialog {
     private void cancelJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelJButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelJButtonActionPerformed
-
+    
+    private void fixJTextField(){
+        JTextField[] fields = {this.nameAgentJTextField, this.descriptionAgenJTextField, this.iconJTextField, this.roleJTextField, this.imageCuerpoEnteroJTextField, this.nameHability1JTextField, this.nameHability2JTextField, this.nameHability3JTextField, this.nameHability4JTextField, this.descriptionHability1JTextField, this.descriptionHability2JTextField, this.descriptionHability3JTextField, this.descriptionHability4JTextField};
+        Dimension fix = new Dimension(208,22);
+        
+        for(JTextField field : fields){
+            field.setPreferredSize(fix);
+            field.setMaximumSize(fix);
+        }
+    }
+    
     public void enableDisablePlantillaJLabel(Boolean enableDisable){
         this.plantillaJLabel.setEnabled(enableDisable);
         this.plantillaJLabel.setVisible(enableDisable);
@@ -323,7 +338,6 @@ public class CreateAndEditPJDialog extends javax.swing.JDialog {
         this.plantillasComboBox.setEnabled(enableDisable);
         this.plantillasComboBox.setVisible(enableDisable);
     }
-    
             
     public void setTitleCreateAndEditJLabel(String s){
         this.createAgentJLabel.setText(s);
@@ -353,35 +367,35 @@ public class CreateAndEditPJDialog extends javax.swing.JDialog {
     }
 
     public String getNameHability1() {
-        return this.nameHabilidad1.getText();
+        return this.nameHability1JTextField.getText();
     }
 
     public String getDescriptionHability1() {
-        return this.descriptionHabilidad1.getText();
+        return this.descriptionHability1JTextField.getText();
     }
 
     public String getNameHability2() {
-        return this.nameHabilidad2.getText();
+        return this.nameHability2JTextField.getText();
     }
 
     public String getDescriptionHability2() {
-        return this.descriptionHabilidad2.getText();
+        return this.descriptionHability2JTextField.getText();
     }
 
     public String getNameHability3() {
-        return this.nameHabilidad3.getText();
+        return this.nameHability3JTextField.getText();
     }
 
     public String getDescriptionHability3() {
-        return this.descriptionHabilidad3.getText();
+        return this.descriptionHability3JTextField.getText();
     }
 
     public String getNameHability4() {
-        return this.nameHabilidad4.getText();
+        return this.nameHability4JTextField.getText();
     }
 
     public String getDescriptionHability4() {
-        return this.descriptionHabilidad4.getText();
+        return this.descriptionHability4JTextField.getText();
     }
 
     public void setCreateButtonActionListener(ActionListener al) {
@@ -413,35 +427,35 @@ public class CreateAndEditPJDialog extends javax.swing.JDialog {
     }
 
     public void setNameHability1(String nameHability1) {
-        this.nameHabilidad1.setText(nameHability1);
+        this.nameHability1JTextField.setText(nameHability1);
     }
 
     public void setDescriptionHability1(String descriptionHability1) {
-        this.descriptionHabilidad1.setText(descriptionHability1);
+        this.descriptionHability1JTextField.setText(descriptionHability1);
     }
 
     public void setNameHability2(String nameHability2) {
-        this.nameHabilidad2.setText(nameHability2);
+        this.nameHability2JTextField.setText(nameHability2);
     }
 
     public void setDescriptionHability2(String descriptionHability2) {
-        this.descriptionHabilidad2.setText(descriptionHability2);
+        this.descriptionHability2JTextField.setText(descriptionHability2);
     }
 
     public void setNameHability3(String nameHability3) {
-        this.nameHabilidad3.setText(nameHability3);
+        this.nameHability3JTextField.setText(nameHability3);
     }
 
     public void setDescriptionHability3(String descriptionHability3) {
-        this.descriptionHabilidad3.setText(descriptionHability3);
+        this.descriptionHability3JTextField.setText(descriptionHability3);
     }
 
     public void setNameHability4(String nameHability4) {
-        this.nameHabilidad4.setText(nameHability4);
+        this.nameHability4JTextField.setText(nameHability4);
     }
 
     public void setDescriptionHability4(String descriptionHability4) {
-        this.descriptionHabilidad4.setText(descriptionHability4);
+        this.descriptionHability4JTextField.setText(descriptionHability4);
     }
     
     public String getItemComBox(){

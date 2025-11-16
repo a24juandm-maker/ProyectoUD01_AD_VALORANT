@@ -86,7 +86,6 @@ public class FrontController {
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 if (contador < tamanhoLista) {
-                    
                     Pj boton = (Pj) dataPjs.get(contador);
                     
                     boton.setLayout(null);
@@ -106,7 +105,6 @@ public class FrontController {
                     ImageIcon imagenBotonFinal = new ImageIcon(imageRedimensity);
                     
                     boton.setIcon(imagenBotonFinal);
-
                     
                     boton.addActionListener(new ActionListener() {
                         @Override
@@ -137,6 +135,8 @@ public class FrontController {
                             view.setDescripcionhabilidad3Label(boton.getHability().get(2).getDescription());
                             view.setDescripcionhabilidad4Label(boton.getHability().get(3).getDescription());
                             
+                            view.saveActualPj(boton);
+                            view.enableEditJButton();
                         }
 
                         private ImageIcon redimensionarImageLabel(ImageIcon image, JLabel label) {
@@ -148,7 +148,7 @@ public class FrontController {
                                     Image.SCALE_SMOOTH);
                             ImageIcon imagenHabFinal = new ImageIcon(imageRedimensityHab);
                             return imagenHabFinal;
-                        }
+                        } 
                     });
                     boton.setToolTipText(boton.getName());
                     view.addButtonPj(boton);
@@ -323,7 +323,7 @@ public class FrontController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CreateAndEditPJDialog modify = new CreateAndEditPJDialog(view,true);
-                ModifyPJController mPjContr = new ModifyPJController(modify,dataPjs,FrontController.this);
+                ModifyPJController mPjContr = new ModifyPJController(modify,dataPjs,FrontController.this,view);
                 modify.setVisible(true);
             }
         };

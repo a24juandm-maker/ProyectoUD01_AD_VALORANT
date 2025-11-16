@@ -35,7 +35,7 @@ import view.MainJFrame;
  */
 public class APIValorant {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException{
-        
+              
         
         MainJFrame view = new MainJFrame();
         view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

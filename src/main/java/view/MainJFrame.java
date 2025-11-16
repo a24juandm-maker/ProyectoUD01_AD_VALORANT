@@ -30,6 +30,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private static final int POSYPANELS = 310;
     private static final int POSXPANELPJS = 93;
     private static final int POSXPANELHABILITIS = 1210;
+    
+    private JButton actualPj = new JButton();
     /**
      * Creates new form Screen
      */
@@ -159,19 +161,18 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(imagenhabilidad4Label)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(nombrehabilidad4Label))
-                            .addGroup(panelHabilitisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(panelHabilitisLayout.createSequentialGroup()
-                                    .addGroup(panelHabilitisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(imagenhabilidad1Label)
-                                        .addComponent(imagenhabilidad2Label))
-                                    .addGap(35, 35, 35)
-                                    .addGroup(panelHabilitisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(nombrehabilidad1Label)
-                                        .addComponent(nombrehabilidad2Label)))
-                                .addGroup(panelHabilitisLayout.createSequentialGroup()
-                                    .addComponent(imagenhabilidad3Label)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(nombrehabilidad3Label))))
+                            .addGroup(panelHabilitisLayout.createSequentialGroup()
+                                .addGroup(panelHabilitisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(imagenhabilidad1Label)
+                                    .addComponent(imagenhabilidad2Label))
+                                .addGap(35, 35, 35)
+                                .addGroup(panelHabilitisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(nombrehabilidad1Label)
+                                    .addComponent(nombrehabilidad2Label)))
+                            .addGroup(panelHabilitisLayout.createSequentialGroup()
+                                .addComponent(imagenhabilidad3Label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(nombrehabilidad3Label)))
                         .addGap(52, 52, 52)
                         .addGroup(panelHabilitisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(descripcionhabilidad2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -235,6 +236,7 @@ public class MainJFrame extends javax.swing.JFrame {
         CreatePJButton.setText("Crear");
 
         EditPJButton.setText("Editar");
+        EditPJButton.setEnabled(false);
 
         DelPJButton.setText("Del");
 
@@ -354,6 +356,22 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         
         return listaBotones;
+    }
+    
+    public void saveActualPj(JButton boton){
+        this.actualPj = boton;
+    }
+    
+    public String getActualPj(){
+        return this.actualPj.getName();
+    }
+    
+    public void enableEditJButton(){
+        this.EditPJButton.setEnabled(true);
+    }
+    
+    public void disableEditJButton(){
+        this.EditPJButton.setEnabled(false);
     }
 
     public void addButtonPj(JButton button) {
