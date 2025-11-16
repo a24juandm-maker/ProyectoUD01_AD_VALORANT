@@ -2,7 +2,7 @@
 Rama creada a partir del main en donde se subiran las versiones unificadas de las demas ramas.
 # Creditos:
   
-  Christian Castro Iglesias()
+  Christian Castro Iglesias(ChristianCastro-dev)
   
   Juan José Dorado Maquieira(a24juandm)
 
