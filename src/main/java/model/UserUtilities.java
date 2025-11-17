@@ -4,6 +4,7 @@
  */
 package model;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,5 +46,51 @@ public class UserUtilities implements Serializable {
             System.out.println("Fallo escritura fichero" + ex.getMessage());
         }
 
+    }
+    
+    public static void writePjsUserJSON(String nombreUsuario, List<Pj> listaPjsEntrada) throws FileNotFoundException, IOException{
+        
+        File rutaArchivos = new File(".");
+        File[] listaArchivos = rutaArchivos.listFiles();
+        String ficheroJSONUsuario = nombreUsuario+".json";
+        for(File f : listaArchivos){
+            Gson gson = new Gson();
+            Pjs listaPjsFicheros;
+            if(f.isFile() && f.toString().equals(nombreUsuario +".json")){
+                
+                BufferedReader lecturaFichero = new BufferedReader(new FileReader(f));
+                
+                listaPjsFicheros = gson.fromJson(lecturaFichero, Pjs.class);
+                
+                if(listaPjsFicheros != listaPjsEntrada){
+                    
+
+                    //String listaJsonPjs = gson.toJson(listaPjsFicheros);
+                    
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroJSONUsuario));
+                    bw.write(gson.toJson(listaPjsFicheros));
+                    bw.flush();
+                    bw.close();
+                }
+                else{
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroJSONUsuario));
+                    //String listaEntrada = gson.toJson(listaPjsEntrada);
+                    bw.write(gson.toJson(listaPjsEntrada));
+                    bw.flush();
+                    bw.close();
+                }
+                
+                
+                
+            }
+            else{
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroJSONUsuario));
+
+                    bw.write(gson.toJson(listaPjsEntrada));
+                    bw.flush();
+                    bw.close();
+                }
+        }
+    
     }
 }
