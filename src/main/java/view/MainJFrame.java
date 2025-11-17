@@ -4,6 +4,7 @@
  */
 package view;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -40,10 +41,10 @@ public class MainJFrame extends javax.swing.JFrame {
         setLayout();
         quitBackgroundColorPanelCuadricula();
         this.displayImagePJ.setLayout(null);
-        maximizeWindow();
+        //maximizeWindow();
         quitLayoutLateral();
-        
         modifyInitComponents();
+        
 
     }
 
@@ -84,6 +85,7 @@ public class MainJFrame extends javax.swing.JFrame {
         DelPJButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setExtendedState(this.MAXIMIZED_BOTH);
 
         titleJLabel.setFont(new java.awt.Font("Inter Regular", 1, 36)); // NOI18N

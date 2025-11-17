@@ -26,6 +26,7 @@ import model.Hability;
 import model.Pj;
 import model.Pjs;
 import model.User;
+import model.UserUtilities;
 import model.Users;
 import view.MainJFrame;
 
@@ -53,7 +54,7 @@ public class APIValorant {
         
         view.setVisible(true);
         //initGUI(listaPersonajes);
-        
+        UserUtilities.writePjsUserJSON("usuario", listaPersonajes);
         
         
     }
