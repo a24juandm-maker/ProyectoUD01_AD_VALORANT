@@ -16,7 +16,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -49,7 +51,7 @@ public class FrontController {
     private static final int ANCHO_HABILIDAD = 60;
     private static final int ALTO_HABILIDAD = 60;
     
-    public FrontController(MainJFrame view, Pjs data,Users dataUsuarios) {
+    public FrontController(MainJFrame view, Pjs data,Users dataUsuarios) throws URISyntaxException, MalformedURLException {
         this.view = view;
         this.dataPjs = data;
         this.dataUsuarios = dataUsuarios;
@@ -70,7 +72,7 @@ public class FrontController {
     }
 
 
-    public void addPjButtons(List<Pj> dataPjs) {
+    public void addPjButtons(List<Pj> dataPjs) throws URISyntaxException, MalformedURLException {
         view.clearPanelPj();
         int tamanhoLista = dataPjs.size();
         System.out.println("Tenemos este numero de personajes " + tamanhoLista);
@@ -94,8 +96,8 @@ public class FrontController {
                     int yPos = i*(tamanhoBoton + gap);
                     boton.setBounds(xPos, yPos, tamanhoBoton, tamanhoBoton);
                     
-                    
-                    ImageIcon careto = boton.getDisplayImagePj();
+                    URI linkImageCareto = new URI(boton.getDisplayImagePj());
+                    ImageIcon careto = new ImageIcon(linkImageCareto.toURL());
                     Image image = careto.getImage();
 
                     //Tratamiento Imagen
@@ -109,34 +111,44 @@ public class FrontController {
                     boton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            System.out.println("presiono agente, muestro imagen");
-                            view.addSetImageDisplayLabel(boton.getGreatPjImage());
-                            
-                            view.setDescripcionPersonajeLabel(boton.getDescription());
-                            
-                            view.setImagenhabilidad1Label(redimensionarImageLabel(boton.getHability().get(0).getDisplayImageHability(),
-                            view.getImagenhabilidad1Label()));
-                            view.setImagenhabilidad2Label(redimensionarImageLabel(boton.getHability().get(1).getDisplayImageHability(),
-                            view.getImagenhabilidad2Label()));
-                            view.setImagenhabilidad3Label(redimensionarImageLabel(boton.getHability().get(2).getDisplayImageHability(),
-                            view.getImagenhabilidad3Label()));
-                            view.setImagenhabilidad4Label(redimensionarImageLabel(boton.getHability().get(3).getDisplayImageHability(),
-                            view.getImagenhabilidad4Label()));
-                            
-                            // NOMBRE HABILIDADES
-                            view.setNombrehabilidad1Label(boton.getHability().get(0).getName());
-                            view.setNombrehabilidad2Label(boton.getHability().get(1).getName());
-                            view.setNombrehabilidad3Label(boton.getHability().get(2).getName());
-                            view.setNombrehabilidad4Label(boton.getHability().get(3).getName());
-                            
-                            //DESCRIPCION HABILIDADES
-                            view.setDescripcionhabilidad1Label(boton.getHability().get(0).getDescription());
-                            view.setDescripcionhabilidad2Label(boton.getHability().get(1).getDescription());
-                            view.setDescripcionhabilidad3Label(boton.getHability().get(2).getDescription());
-                            view.setDescripcionhabilidad4Label(boton.getHability().get(3).getDescription());
-                            
-                            view.saveActualPj(boton);
-                            view.enableEditJButton();
+                            try {
+                                System.out.println("presiono agente, muestro imagen");
+                                URI linkImageFull = new URI(boton.getGreatPjImage());
+                                view.addSetImageDisplayLabel(new ImageIcon(linkImageFull.toURL()));
+                                
+                                view.setDescripcionPersonajeLabel(boton.getDescription());
+                                
+                                URI linkImageHability1 = new URI(boton.getHability().get(0).getDisplayImageHability());
+                                URI linkImageHability2 = new URI(boton.getHability().get(1).getDisplayImageHability());
+                                URI linkImageHability3 = new URI(boton.getHability().get(2).getDisplayImageHability());
+                                URI linkImageHability4 = new URI(boton.getHability().get(3).getDisplayImageHability());
+                                
+                                view.setImagenhabilidad1Label(redimensionarImageLabel(new ImageIcon(linkImageHability1.toURL()),
+                                        view.getImagenhabilidad1Label()));
+                                view.setImagenhabilidad2Label(redimensionarImageLabel(new ImageIcon(linkImageHability2.toURL()),
+                                        view.getImagenhabilidad2Label()));
+                                view.setImagenhabilidad3Label(redimensionarImageLabel(new ImageIcon(linkImageHability3.toURL()),
+                                        view.getImagenhabilidad3Label()));
+                                view.setImagenhabilidad4Label(redimensionarImageLabel(new ImageIcon(linkImageHability4.toURL()),
+                                        view.getImagenhabilidad4Label()));
+                                
+                                // NOMBRE HABILIDADES
+                                view.setNombrehabilidad1Label(boton.getHability().get(0).getName());
+                                view.setNombrehabilidad2Label(boton.getHability().get(1).getName());
+                                view.setNombrehabilidad3Label(boton.getHability().get(2).getName());
+                                view.setNombrehabilidad4Label(boton.getHability().get(3).getName());
+                                
+                                //DESCRIPCION HABILIDADES
+                                view.setDescripcionhabilidad1Label(boton.getHability().get(0).getDescription());
+                                view.setDescripcionhabilidad2Label(boton.getHability().get(1).getDescription());
+                                view.setDescripcionhabilidad3Label(boton.getHability().get(2).getDescription());
+                                view.setDescripcionhabilidad4Label(boton.getHability().get(3).getDescription());
+                                
+                                view.saveActualPj(boton);
+                                view.enableEditJButton();
+                            } catch (URISyntaxException | MalformedURLException ex) {
+                                System.err.println(ex.getMessage());
+                            }
                         }
 
                         private ImageIcon redimensionarImageLabel(ImageIcon image, JLabel label) {
@@ -193,7 +205,7 @@ public class FrontController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 UserJDialog viewLogin = new UserJDialog(view,true);
-                LoginController lc = new LoginController(viewLogin,dataUsuarios,FrontController.this);
+                LoginController lc = new LoginController(viewLogin,dataUsuarios,FrontController.this,dataPjs);
                 
                 viewLogin.setTextLoginJButton("Logear");
                 viewLogin.setTextLoginTitleJLabel("Login");
@@ -243,17 +255,25 @@ public class FrontController {
                 List<Pj> rolDataPj = new ArrayList<>();
                 Object selectedItem = view.getItemRoleComboJComboBox();
                 if(!selectedItem.equals("Rol")){
-                    for (Pj personaje : dataPj) {
-                        if (personaje.getRole().equals(selectedItem.toString())) {
-                            rolDataPj.add(personaje);
+                    try {
+                        for (Pj personaje : dataPj) {
+                            if (personaje.getRole().equals(selectedItem.toString())) {
+                                rolDataPj.add(personaje);
+                            }
                         }
+                        view.clearPanelPj();
+                        
+                        addPjButtons(rolDataPj);
+                    } catch (URISyntaxException | MalformedURLException ex) {
+                        System.getLogger(FrontController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
                     }
-                    view.clearPanelPj();
-                
-                    addPjButtons(rolDataPj);
                 } else {
-                    view.clearPanelPj();
-                    addPjButtons(dataPj);
+                    try {
+                        view.clearPanelPj();
+                        addPjButtons(dataPj);
+                    } catch (URISyntaxException | MalformedURLException ex) {
+                        System.getLogger(FrontController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                    }
                 }
             }
         };

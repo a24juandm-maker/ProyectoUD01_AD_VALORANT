@@ -7,9 +7,10 @@ package controller.modifyPJS;
 import controller.FrontController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ImageIcon;
 import model.Hability;
 import model.Pj;
 import model.Pjs;
@@ -38,12 +39,16 @@ public class CreatePJController {
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("hola");
-
-                Pj nuevoAgent = createAgent();
-                dataPjs.getListPj().add(nuevoAgent);
-                fc.addPjButtons(dataPjs.getListPj());
-                view.dispose();
+                try {
+                    System.out.println("hola");
+                    
+                    Pj nuevoAgent = createAgent();
+                    dataPjs.getListPj().add(nuevoAgent);
+                    fc.addPjButtons(dataPjs.getListPj());
+                    view.dispose();
+                } catch (URISyntaxException | MalformedURLException ex) {
+                    System.err.println(ex.getMessage());
+                }
  
             }
 
@@ -68,25 +73,25 @@ public class CreatePJController {
                 List<Hability> hability = new ArrayList<>();
 
                 String description = view.getDescriptionAgent();
-                ImageIcon displayImagePj = new ImageIcon(view.getImageIconSmallFace());
+                String displayImagePj = view.getImageIconSmallFace();
                 String role = view.getRole();
-                ImageIcon greatPjImage = new ImageIcon(view.getImageDisplay());
+                String greatPjImage = view.getImageDisplay();
                 
                 String hability1Name = view.getNameHability1();
                 String hability1Description = view.getDescriptionHability1();
-                Hability habilidad1 = new Hability(name, description, new ImageIcon(""));
+                Hability habilidad1 = new Hability(hability1Name, hability1Description, "");
                 
                 String hability2Name = view.getNameHability2();
                 String hability2Description = view.getDescriptionHability2();
-                Hability habilidad2 = new Hability(name, description, new ImageIcon(""));
+                Hability habilidad2 = new Hability(hability2Name, hability2Description, "");
                 
                 String hability3Name = view.getNameHability3();
                 String hability3Description = view.getDescriptionHability3();
-                Hability habilidad3 = new Hability(name, description, new ImageIcon(""));
+                Hability habilidad3 = new Hability(hability3Name, hability3Description, "");
                 
                 String hability4Name = view.getNameHability4();
                 String hability4Description = view.getDescriptionHability4();
-                Hability habilidad4 = new Hability(name, description, new ImageIcon(""));
+                Hability habilidad4 = new Hability(hability4Name, hability4Description, "");
                 hability.add(habilidad4);
                 hability.add(habilidad3);
                 hability.add(habilidad2);

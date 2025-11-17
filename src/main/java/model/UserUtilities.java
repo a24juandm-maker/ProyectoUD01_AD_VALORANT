@@ -49,8 +49,13 @@ public class UserUtilities implements Serializable {
     }
     
     public static void writePjsUserJSON(String nombreUsuario, List<Pj> listaPjsEntrada) throws FileNotFoundException, IOException{
-        
-        File rutaArchivos = new File(".");
+        Gson gson = new Gson();
+        String json = "";
+        for(Pj pj : listaPjsEntrada){
+            json = gson.toJson(pj);
+        }
+        System.out.println(json);
+        /*File rutaArchivos = new File(".");
         File[] listaArchivos = rutaArchivos.listFiles();
         String ficheroJSONUsuario = nombreUsuario+".json";
         for(File f : listaArchivos){
@@ -90,7 +95,7 @@ public class UserUtilities implements Serializable {
                     bw.flush();
                     bw.close();
                 }
-        }
+        }*/
     
     }
 }

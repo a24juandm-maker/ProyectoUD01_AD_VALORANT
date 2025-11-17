@@ -4,8 +4,6 @@
  */
 package model;
 
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author christian
@@ -15,15 +13,16 @@ public class Hability {
     private String name;
     private String description;
     private String buttonAssigned;
-    private ImageIcon displayImageHability;
+    private String displayImageHability;
 
     
     public Hability() {
         this.name = "";
         this.description = "";
         this.buttonAssigned = "";
+        this.displayImageHability = "";
     }
-    public Hability(String name, String description, ImageIcon displayImageHability) {
+    public Hability(String name, String description, String displayImageHability) {
         this.name = name;
         this.description = description;
         this.displayImageHability = displayImageHability;
@@ -53,11 +52,11 @@ public class Hability {
         this.buttonAssigned = buttonAssigned;
     }
 
-    public ImageIcon getDisplayImageHability() {
+    public String getDisplayImageHability() {
         return displayImageHability;
     }
 
-    public void setDisplayImageHability(ImageIcon displayImageHability) {
+    public void setDisplayImageHability(String displayImageHability) {
         this.displayImageHability = displayImageHability;
     }
     

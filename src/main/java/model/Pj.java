@@ -6,7 +6,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
@@ -20,9 +19,9 @@ public class Pj extends JButton{
 
     
     private String description;
-    private ImageIcon displayImagePj;
+    private String displayImagePj;
     private String role;
-    private ImageIcon greatPjImage;
+    private String greatPjImage;
 
     public Pj() {
         this.id = "";
@@ -30,16 +29,18 @@ public class Pj extends JButton{
         this.hability = new ArrayList<>();
         this.description = "";
         this.role = "";
+        this.displayImagePj = "";
+        this.greatPjImage = "";
     }
 
-    public Pj(String id, String name, List<Hability> hability, String description, ImageIcon displayImagePj, String role) {
+    /*public Pj(String id, String name, List<Hability> hability, String description, ImageIcon displayImagePj, String role) {
         this.id = id;
         this.name = name;
         this.hability = hability;
         this.description = description;
         this.displayImagePj = displayImagePj;
         this.role = role;
-    }
+    }*/
      
     
     
@@ -86,11 +87,11 @@ public class Pj extends JButton{
         this.description = description;
     }
 
-    public ImageIcon getDisplayImagePj() {
+    public String getDisplayImagePj() {
         return displayImagePj;
     }
 
-    public void setDisplayImagePj(ImageIcon displayImagePj) {
+    public void setDisplayImagePj(String displayImagePj) {
         this.displayImagePj = displayImagePj;
     }
     public String getRole() {
@@ -101,11 +102,11 @@ public class Pj extends JButton{
         this.role = role;
     }
 
-    public ImageIcon getGreatPjImage() {
+    public String getGreatPjImage() {
         return greatPjImage;
     }
 
-    public void setGreatPjImage(ImageIcon greatPjImage) {
+    public void setGreatPjImage(String greatPjImage) {
         this.greatPjImage = greatPjImage;
     }
     

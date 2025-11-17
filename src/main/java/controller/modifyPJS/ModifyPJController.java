@@ -47,50 +47,54 @@ public class ModifyPJController {
         ActionListener al = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String textName = view.getNameAgent();
-                String textDescription = view.getDescriptionAgent();
-                String textImagenIcon = view.getImageIconSmallFace();
-                String textRol = view.getRole();
-                String textImageFullBody = view.getImageDisplay();
-                String textNameHability1 = view.getNameHability1();
-                String textNameHability2 = view.getNameHability2();
-                String textNameHability3 = view.getNameHability3();
-                String textNameHability4 = view.getNameHability4();
-                String textDescriptionHability1 = view.getDescriptionHability1();
-                String textDescriptionHability2 = view.getDescriptionHability2();
-                String textDescriptionHability3 = view.getDescriptionHability3();
-                String textDescriptionHability4 = view.getDescriptionHability4();
-                
-                List<Pj> listaPersonajes = dataPjs.getListPj();
-                for (Pj personaje : listaPersonajes) {
-                    if (personaje.getName().equals(viewMain.getActualPj())) {
-                        personaje.setName(textName);
-                        personaje.setDescription(textDescription);
-                        personaje.setRole(textRol);
-                        try {
-                            URI linkImageIcon = new URI(textImagenIcon);
-                            URI linkImageFull = new URI(textImageFullBody);
-                            ImageIcon newIcon = new ImageIcon(linkImageIcon.toURL());
-                            ImageIcon newFullBody = new ImageIcon(linkImageFull.toURL());
-                            personaje.setIcon(newIcon);
-                            personaje.setDisplayImagePj(newFullBody);
-                        } catch(Exception ex){
-                            System.out.println(ex.getMessage());
+                try {
+                    String textName = view.getNameAgent();
+                    String textDescription = view.getDescriptionAgent();
+                    String textImagenIcon = view.getImageIconSmallFace();
+                    String textRol = view.getRole();
+                    String textImageFullBody = view.getImageDisplay();
+                    String textNameHability1 = view.getNameHability1();
+                    String textNameHability2 = view.getNameHability2();
+                    String textNameHability3 = view.getNameHability3();
+                    String textNameHability4 = view.getNameHability4();
+                    String textDescriptionHability1 = view.getDescriptionHability1();
+                    String textDescriptionHability2 = view.getDescriptionHability2();
+                    String textDescriptionHability3 = view.getDescriptionHability3();
+                    String textDescriptionHability4 = view.getDescriptionHability4();
+                    
+                    List<Pj> listaPersonajes = dataPjs.getListPj();
+                    for (Pj personaje : listaPersonajes) {
+                        if (personaje.getName().equals(viewMain.getActualPj())) {
+                            personaje.setName(textName);
+                            personaje.setDescription(textDescription);
+                            personaje.setRole(textRol);
+                            try {
+                                URI linkImageIcon = new URI(textImagenIcon);
+                                URI linkImageFull = new URI(textImageFullBody);
+                                ImageIcon newIcon = new ImageIcon(linkImageIcon.toURL());
+                                //ImageIcon newFullBody = new ImageIcon(linkImageFull.toURL());
+                                personaje.setIcon(newIcon);
+                                personaje.setDisplayImagePj(linkImageFull.getPath());
+                            } catch(Exception ex){
+                                System.out.println(ex.getMessage());
+                            }
+                            personaje.getHability().get(0).setName(textNameHability1);
+                            personaje.getHability().get(1).setName(textNameHability2);
+                            personaje.getHability().get(2).setName(textNameHability3);
+                            personaje.getHability().get(3).setName(textNameHability4);
+                            personaje.getHability().get(0).setDescription(textDescriptionHability1);
+                            personaje.getHability().get(1).setDescription(textDescriptionHability2);
+                            personaje.getHability().get(2).setDescription(textDescriptionHability3);
+                            personaje.getHability().get(3).setDescription(textDescriptionHability4);
+                            break;
                         }
-                        personaje.getHability().get(0).setName(textNameHability1);
-                        personaje.getHability().get(1).setName(textNameHability2);
-                        personaje.getHability().get(2).setName(textNameHability3);
-                        personaje.getHability().get(3).setName(textNameHability4);
-                        personaje.getHability().get(0).setDescription(textDescriptionHability1);
-                        personaje.getHability().get(1).setDescription(textDescriptionHability2);
-                        personaje.getHability().get(2).setDescription(textDescriptionHability3);
-                        personaje.getHability().get(3).setDescription(textDescriptionHability4);
-                        break;
                     }
+                    fc.addPjButtons(listaPersonajes);
+                    view.dispose();
+                    JOptionPane.showMessageDialog(viewMain, "El Agente ha sido editado");
+                } catch (URISyntaxException | MalformedURLException ex) {
+                    System.err.println(ex.getMessage());
                 }
-                fc.addPjButtons(listaPersonajes);
-                view.dispose();
-                JOptionPane.showMessageDialog(viewMain, "El Agente ha sido editado");
             }
         };
         return al;
@@ -115,7 +119,7 @@ public class ModifyPJController {
                 view.setDescriptionAgent(personaje.getDescription());
                 view.setImageIconSmallFace(personaje.getIcon().toString());
                 view.setRole(personaje.getRole());
-                view.setImageDisplay(personaje.getDisplayImagePj().toString());
+                view.setImageDisplay(personaje.getDisplayImagePj());
 
                 view.setNameHability1(personaje.getHability().get(0).getName());
                 view.setDescriptionHability1(personaje.getHability().get(0).getDescription());
