@@ -349,5 +349,10 @@ public class FrontController {
         };
         return al;
     }
-    
+    public void enableDisableLoginRegisterButton(Boolean enableDisable){
+        view.enableDisableRegisterLoginButtons(enableDisable);
+    }
+    public void enableDisableEditCreateDeleteButton(Boolean enableDisable){
+        view.enableDisableButtonsAddEditCreateVisible(enableDisable);
+    }
 }

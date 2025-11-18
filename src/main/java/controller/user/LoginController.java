@@ -70,6 +70,9 @@ public class LoginController {
                         view.clearFields();
                         JOptionPane.showMessageDialog(view, "Login Realizado");
                         UserUtilities.writePjsUserJSON("usuario", dataPjs.getListPj());
+                        parentController.enableDisableLoginRegisterButton(false);
+                        parentController.enableDisableEditCreateDeleteButton(true);
+                        
                     } catch (IOException ex) {
                         System.getLogger(LoginController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
                     }

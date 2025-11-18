@@ -4,9 +4,11 @@
  */
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -44,7 +46,8 @@ public class MainJFrame extends javax.swing.JFrame {
         //maximizeWindow();
         quitLayoutLateral();
         modifyInitComponents();
-        
+        this.enableDisableButtonsAddEditCreateVisible(true);
+        this.enableDisableRegisterLoginButtons(false);
 
     }
 
@@ -334,7 +337,13 @@ public class MainJFrame extends javax.swing.JFrame {
         //posicionEtiquetasPanelHabilitis();
         panelHabilitis.setVisible(true);
         panelPjs.setVisible(true);
+        
+            
+            
+            
     }
+
+   
     
     
     private void modifyInitComponents() {
@@ -522,6 +531,15 @@ public class MainJFrame extends javax.swing.JFrame {
     }
     public void setCreatePjActionListener(ActionListener al){
         this.CreatePJButton.addActionListener(al);
+    }
+    public void enableDisableButtonsAddEditCreateVisible(Boolean enableDisable){
+        this.CreatePJButton.setVisible(enableDisable);
+        this.DelPJButton.setVisible(enableDisable);
+        this.EditPJButton.setVisible(enableDisable);
+    }
+    public void enableDisableRegisterLoginButtons(Boolean enableDisable){
+        this.registerJButton.setVisible(enableDisable);
+        this.loginJButton.setVisible(enableDisable);
     }
 
 
