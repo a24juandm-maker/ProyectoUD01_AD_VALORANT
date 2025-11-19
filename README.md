@@ -114,10 +114,12 @@ Pulsamos en el boton de eliminar en caso de querer borrarlo y si no lo queremos 
 <img width="2555" height="1390" alt="Captura de pantalla 2025-11-18 200419" src="https://github.com/user-attachments/assets/142abddb-85f4-4a26-8be5-240f1f5b280c" />
 
 Reparto de tareas:
-A la hora de dividir el trabajo nos repartimos de la siguiente manera: 
-Juanjo hizo las vistas y el readme del github
-Axel hizo la lectura de la Api y algunos controladores
-Christian hizo el modelo y otros controladores
+
+A la hora de dividir el trabajo nos repartimos de la siguiente manera.
+
+Juanjo hizo las vistas y el readme del github.
+Axel hizo la lectura de la Api y algunos controladores.
+Christian hizo el modelo y otros controladores.
 
 De esta manera cada uno fue haciendo los commits necesarios para que la aplicacion fuera avanzando al mismo tiempo que se seguia trabajando en ella.
 
