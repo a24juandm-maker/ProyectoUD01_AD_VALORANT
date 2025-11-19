@@ -96,8 +96,16 @@ public class FrontController {
                     int yPos = i*(tamanhoBoton + gap);
                     boton.setBounds(xPos, yPos, tamanhoBoton, tamanhoBoton);
                     
-                    URI linkImageCareto = new URI(boton.getDisplayImagePj());
-                    ImageIcon careto = new ImageIcon(linkImageCareto.toURL());
+                    URI linkImageCareto;
+                    ImageIcon careto;
+                    try{
+                    linkImageCareto = new URI(boton.getDisplayImagePj());
+                    
+                    careto = new ImageIcon(linkImageCareto.toURL());
+                    }catch(Exception ex){
+                        linkImageCareto = new URI("https://cdn-icons-png.flaticon.com/512/5219/5219070.png");
+                        careto = new ImageIcon(linkImageCareto.toURL());
+                    }
                     Image image = careto.getImage();
 
                     //Tratamiento Imagen
@@ -114,6 +122,9 @@ public class FrontController {
                             try {
                                 System.out.println("presiono agente, muestro imagen");
                                 URI linkImageFull = new URI(boton.getGreatPjImage());
+                                if(linkImageFull == null){
+                                    linkImageFull = new URI("https://cdn-icons-png.flaticon.com/512/5219/5219070.png");
+                                }
                                 view.addSetImageDisplayLabel(new ImageIcon(linkImageFull.toURL()));
                                 
                                 view.setDescripcionPersonajeLabel(boton.getDescription());

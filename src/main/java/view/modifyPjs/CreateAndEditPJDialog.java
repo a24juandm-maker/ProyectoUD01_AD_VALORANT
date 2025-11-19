@@ -17,6 +17,7 @@ public class CreateAndEditPJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         fixJTextField();
+        //this.disableVisibleInsertImage(false);
     }
 
     /**
@@ -463,6 +464,12 @@ public class CreateAndEditPJDialog extends javax.swing.JDialog {
     }
     public void addItemPlantillaComboBox(String plantilla){
         this.plantillasComboBox.addItem(plantilla);
+    }
+    public void disableVisibleInsertImage(Boolean enableDisable){
+        this.imageCuerpoEnteroJTextField.setVisible(enableDisable);
+        this.imagenCuerpoEnteroJLabel.setVisible(enableDisable);
+        this.imageIconJLabel.setVisible(enableDisable);
+        this.iconJTextField.setVisible(enableDisable);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
