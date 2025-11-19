@@ -35,7 +35,7 @@ import view.MainJFrame;
  */
 public class APIValorant {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException{
-        
+              
         
         MainJFrame view = new MainJFrame();
         view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,7 +53,7 @@ public class APIValorant {
         
         view.setVisible(true);
         //initGUI(listaPersonajes);
-        
+        //UserUtilities.writePjsUserJSON("usuario", listaPersonajes);
         
         
     }
@@ -70,24 +70,9 @@ public class APIValorant {
             JsonObject objectRole = son.get("role").getAsJsonObject();
             personajes.addRole(objectRole.get("displayName").getAsString());
             personaje.setRole(objectRole.get("displayName").getAsString());
+            personaje.setDisplayImagePj(son.get("displayIcon").getAsString());
+            personaje.setGreatPjImage(son.get("fullPortrait").getAsString());
             
-            try{
-                URI linkImage = new URI(son.get("displayIcon").getAsString());
-                ImageIcon displayIcon = new ImageIcon(linkImage.toURL());
-                personaje.setDisplayImagePj(displayIcon);
-
-                URI linkImagePortrait = new URI(son.get("fullPortrait").getAsString());
-                ImageIcon displayPortrait = new ImageIcon(linkImagePortrait.toURL());
-                personaje.setGreatPjImage(displayPortrait);
-            } catch(Exception e){                
-                URI linkImage = new URI("https://static.wikia.nocookie.net/xtaleunderverse4071/images/8/8a/Fatal_Error_Underverse.jpg");
-                ImageIcon displayIcon = new ImageIcon(linkImage.toURL());
-                personaje.setDisplayImagePj(displayIcon);
-
-                URI linkImagePortrait = new URI("https://static.wikia.nocookie.net/xtaleunderverse4071/images/8/8a/Fatal_Error_Underverse.jpg");
-                ImageIcon displayPortrait = new ImageIcon(linkImagePortrait.toURL());
-                personaje.setGreatPjImage(displayPortrait);
-            }
             
             JsonArray arrayAbilities = son.getAsJsonArray("abilities");
             List<Hability> listaHabilidades = new ArrayList<>();
@@ -96,17 +81,14 @@ public class APIValorant {
                 
                 String nombreHabilidad = habilidadSon.get("displayName").getAsString();
                 String descripcion = habilidadSon.get("description").getAsString();
-                
-                ImageIcon displayIconHability = null;
-                URI displayIconUri;
-                try{
-                    JsonElement displayIconLink = habilidadSon.get("displayIcon");
-                    displayIconUri = new URI(displayIconLink.getAsString());
-                    displayIconHability = new ImageIcon(displayIconUri.toURL());
-                }catch(Exception e){                    
-                    displayIconUri = new URI("https://static.wikia.nocookie.net/xtaleunderverse4071/images/8/8a/Fatal_Error_Underverse.jpg");
-                    displayIconHability = new ImageIcon(displayIconUri.toURL());
+                String displayIconHability = "";
+                try {
+                    displayIconHability = habilidadSon.get("displayIcon").getAsString();
+                } catch(UnsupportedOperationException ex){
+                    displayIconHability = "";
                 }
+                
+                
                 Hability habilidadPJ = new Hability(nombreHabilidad, descripcion, displayIconHability);
                                 
                 listaHabilidades.add(habilidadPJ);
@@ -126,17 +108,22 @@ public class APIValorant {
         return arrayRaiz;
     }
     
-    public static void initGUI(List<Pj> listaPersonajes){
-        //ImageIcon image = listaPersonajes.get(0).getHability().get(1).getDisplayImageHability();
-        ImageIcon image = listaPersonajes.get(20).getGreatPjImage();
-        
-        JFrame frame = new JFrame();
-        frame.setBounds(400, 400, 400, 400);
-        
-        JLabel label =  new JLabel();
-        label.setIcon(image);
-        label.setBounds(5,5,5,5);
-        frame.add(label);
-        frame.setVisible(true);
+    public static void initGUI(List<Pj> listaPersonajes) {
+        try {
+            //ImageIcon image = listaPersonajes.get(0).getHability().get(1).getDisplayImageHability();
+            URI linkImage = new URI(listaPersonajes.get(0).getGreatPjImage());
+            ImageIcon image = new ImageIcon(linkImage.toURL());
+            
+            JFrame frame = new JFrame();
+            frame.setBounds(400, 400, 400, 400);
+            
+            JLabel label =  new JLabel();
+            label.setIcon(image);
+            label.setBounds(5,5,5,5);
+            frame.add(label);
+            frame.setVisible(true);
+        } catch (URISyntaxException | MalformedURLException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 }

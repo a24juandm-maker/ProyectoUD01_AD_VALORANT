@@ -7,6 +7,8 @@ package controller.modifyPJS;
 import controller.FrontController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import model.Pj;
@@ -52,10 +54,15 @@ public class DeleteController {
                         }
                     }
                     if (encontrado == true) {
-                        System.out.println("pjAeliminar" + pjAeliminar.getName());
-
-                        listPjs.remove(pjAeliminar);
-                        fc.addPjButtons(listPjs);
+                        try {
+                            System.out.println("pjAeliminar" + pjAeliminar.getName());
+                            
+                            listPjs.remove(pjAeliminar);
+                            fc.addPjButtons(listPjs);
+                            view.dispose();
+                        } catch (URISyntaxException | MalformedURLException ex) {
+                            System.err.println(ex.getMessage());
+                        }
                     } else {
                         JOptionPane.showMessageDialog(view, "No se encontro el personaje a eliminar", "Pj no encontrado", JOptionPane.ERROR_MESSAGE);
                     }

@@ -7,9 +7,12 @@ package controller.user;
 import controller.FrontController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 import javax.swing.JOptionPane;
+import model.Pjs;
 import model.User;
+import model.UserUtilities;
 import model.Users;
 import view.user.UserJDialog;
 
@@ -20,12 +23,14 @@ import view.user.UserJDialog;
 public class LoginController {
     private UserJDialog view;
     private Users dataUsuarios;
+    private Pjs dataPjs;
     private FrontController parentController;
 
-    public LoginController(UserJDialog view, Users dataUsuarios, FrontController parentController) {
+    public LoginController(UserJDialog view, Users dataUsuarios, FrontController parentController, Pjs dataPjs) {
         this.view = view;
         this.dataUsuarios = dataUsuarios;
         this.parentController = parentController;
+        this.dataPjs = dataPjs;
         
         this.view.setCancelJButtonActionListener(this.getCancelJButtonActionListener());
         this.view.setLoginJButtonActionListener(this.getLoginJButtonActionListener());
@@ -61,8 +66,16 @@ public class LoginController {
                     view.clearFields();
                     JOptionPane.showMessageDialog(view, "Usuario o Contraseña incorrectos","Error de Login",JOptionPane.ERROR_MESSAGE);
                 } else {
-                    view.clearFields();
-                    JOptionPane.showMessageDialog(view, "Login Realizado");
+                    try {
+                        view.clearFields();
+                        JOptionPane.showMessageDialog(view, "Login Realizado");
+                        UserUtilities.writePjsUserJSON("usuario", dataPjs.getListPj());
+                        parentController.enableDisableLoginRegisterButton(false);
+                        parentController.enableDisableEditCreateDeleteButton(true);
+                        
+                    } catch (IOException ex) {
+                        System.getLogger(LoginController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                    }
                 }
             }
         };
