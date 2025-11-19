@@ -39,6 +39,7 @@ public class ModifyPJController {
         this.view.enableDisableComboBoxPlantilla(false);
         this.view.setCreateButtonActionListener(this.addEditActionListener());
         this.view.setCancelButtonActionListener(this.addCancelActionListener());
+        this.view.disableVisibleInsertImage(false);
         
         getActualPj();
     }
@@ -50,9 +51,9 @@ public class ModifyPJController {
                 try {
                     String textName = view.getNameAgent();
                     String textDescription = view.getDescriptionAgent();
-                    String textImagenIcon = view.getImageIconSmallFace();
+                    //String textImagenIcon = view.getImageIconSmallFace();
                     String textRol = view.getRole();
-                    String textImageFullBody = view.getImageDisplay();
+                    //String textImageFullBody = view.getImageDisplay();
                     String textNameHability1 = view.getNameHability1();
                     String textNameHability2 = view.getNameHability2();
                     String textNameHability3 = view.getNameHability3();
@@ -68,7 +69,7 @@ public class ModifyPJController {
                             personaje.setName(textName);
                             personaje.setDescription(textDescription);
                             personaje.setRole(textRol);
-                            try {
+                            /*try {
                                 URI linkImageIcon = new URI(textImagenIcon);
                                 URI linkImageFull = new URI(textImageFullBody);
                                 ImageIcon newIcon = new ImageIcon(linkImageIcon.toURL());
@@ -77,7 +78,7 @@ public class ModifyPJController {
                                 personaje.setDisplayImagePj(linkImageFull.getPath());
                             } catch(Exception ex){
                                 System.out.println(ex.getMessage());
-                            }
+                            }*/
                             personaje.getHability().get(0).setName(textNameHability1);
                             personaje.getHability().get(1).setName(textNameHability2);
                             personaje.getHability().get(2).setName(textNameHability3);
@@ -89,6 +90,7 @@ public class ModifyPJController {
                             break;
                         }
                     }
+                    fc.guardarDatosUsuario();
                     fc.addPjButtons(listaPersonajes);
                     view.dispose();
                     JOptionPane.showMessageDialog(viewMain, "El Agente ha sido editado");
@@ -117,9 +119,9 @@ public class ModifyPJController {
                 foundPj = true;
                 view.setNameAgent(personaje.getName());
                 view.setDescriptionAgent(personaje.getDescription());
-                view.setImageIconSmallFace(personaje.getDisplayImagePj());
+                //view.setImageIconSmallFace(personaje.getDisplayImagePj());
                 view.setRole(personaje.getRole());
-                view.setImageDisplay(personaje.getGreatPjImage());
+                //view.setImageDisplay(personaje.getGreatPjImage());
 
                 view.setNameHability1(personaje.getHability().get(0).getName());
                 view.setDescriptionHability1(personaje.getHability().get(0).getDescription());

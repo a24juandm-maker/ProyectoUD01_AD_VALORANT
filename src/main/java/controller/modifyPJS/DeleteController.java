@@ -58,6 +58,7 @@ public class DeleteController {
                             System.out.println("pjAeliminar" + pjAeliminar.getName());
                             
                             listPjs.remove(pjAeliminar);
+                            fc.guardarDatosUsuario();
                             fc.addPjButtons(listPjs);
                             view.dispose();
                         } catch (URISyntaxException | MalformedURLException ex) {

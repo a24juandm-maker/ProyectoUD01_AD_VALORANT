@@ -26,6 +26,7 @@ import model.Hability;
 import model.Pj;
 import model.Pjs;
 import model.User;
+import model.UserUtilities;
 import model.Users;
 import view.MainJFrame;
 
@@ -43,7 +44,11 @@ public class APIValorant {
         List<Pj> listaPersonajes = new ArrayList<>();
         Pjs dataPersonajes = new Pjs();
         dataPersonajes.setListPj(listaPersonajes);
-        List<User> users = new ArrayList();
+        List<User> users = UserUtilities.readUser();
+        if(users == null){
+            users = new ArrayList<>();
+        }
+
         Users dataUsuario = new Users();
         dataUsuario.setListUsers(users);
         

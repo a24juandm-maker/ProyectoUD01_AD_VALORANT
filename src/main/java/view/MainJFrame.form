@@ -66,8 +66,8 @@
               </Group>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="428" max="-2" attributes="0"/>
-              <Component id="titleJLabel" min="-2" pref="1008" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="539" max="-2" attributes="0"/>
+              <Component id="titleJLabel" min="-2" pref="808" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>

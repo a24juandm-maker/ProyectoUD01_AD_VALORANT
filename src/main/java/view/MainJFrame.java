@@ -46,9 +46,11 @@ public class MainJFrame extends javax.swing.JFrame {
         //maximizeWindow();
         quitLayoutLateral();
         modifyInitComponents();
-        this.enableDisableButtonsAddEditCreateVisible(true);
-        this.enableDisableRegisterLoginButtons(false);
-
+        this.enableDisableButtonsAddEditCreateVisible(false);
+        this.enableDisableRegisterLoginButtons(true);
+        
+        this.setFondo();
+        this.setColor();
     }
 
     /**
@@ -279,8 +281,8 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(panelHabilitis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(92, 92, 92))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(428, 428, 428)
-                .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(539, 539, 539)
+                .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -536,6 +538,20 @@ public class MainJFrame extends javax.swing.JFrame {
     public void enableDisableRegisterLoginButtons(Boolean enableDisable){
         this.registerJButton.setVisible(enableDisable);
         this.loginJButton.setVisible(enableDisable);
+    }
+    
+    public void setFondo() {
+
+        this.getContentPane().createImage(WIDTH, HEIGHT);
+    }
+
+    public void setColor() {
+
+        this.getContentPane().setBackground(new Color(195,0,0));
+    }
+    public void seLogueo(){
+        this.enableDisableRegisterLoginButtons(false);
+        this.enableDisableButtonsAddEditCreateVisible(true);
     }
 
 

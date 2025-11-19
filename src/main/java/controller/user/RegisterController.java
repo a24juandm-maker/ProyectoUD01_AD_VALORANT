@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
 import model.User;
+import model.UserUtilities;
 import model.Users;
 import view.user.UserJDialog;
 
@@ -61,6 +62,8 @@ public class RegisterController {
                 if(!exists){
                     User usuarioNuevo = new User(nameNewUser,passwordNewUser);
                     dataUsuarios.getListUsers().add(usuarioNuevo);
+                    
+                    UserUtilities.writeUser(dataUsuarios.getListUsers());
                     view.clearFields();
                     JOptionPane.showMessageDialog(view, "Usuario creado con exito!");
                 } else {
