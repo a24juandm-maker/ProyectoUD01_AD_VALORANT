@@ -115,11 +115,11 @@ Pulsamos en el boton de eliminar en caso de querer borrarlo y si no lo queremos 
 
 Reparto de tareas:
 
-A la hora de dividir el trabajo nos repartimos de la siguiente manera.
+A la hora de dividir el trabajo nos repartimos de la siguiente manera:
 
-Juanjo hizo las vistas y el readme del github.
-Axel hizo la lectura de la Api y algunos controladores.
-Christian hizo el modelo y otros controladores.
+Juanjo -> la vista previa de la vista principal y el readme del github.
+Axel -> la lectura de la Api en el main, controladores y vistas.
+Christian -> el modelo, controladores y vistas
 
 De esta manera cada uno fue haciendo los commits necesarios para que la aplicacion fuera avanzando al mismo tiempo que se seguia trabajando en ella.
 
