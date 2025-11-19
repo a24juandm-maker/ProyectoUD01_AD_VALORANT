@@ -26,7 +26,6 @@ import model.Hability;
 import model.Pj;
 import model.Pjs;
 import model.User;
-import model.UserUtilities;
 import model.Users;
 import view.MainJFrame;
 

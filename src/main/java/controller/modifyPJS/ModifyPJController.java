@@ -117,9 +117,9 @@ public class ModifyPJController {
                 foundPj = true;
                 view.setNameAgent(personaje.getName());
                 view.setDescriptionAgent(personaje.getDescription());
-                view.setImageIconSmallFace(personaje.getIcon().toString());
+                view.setImageIconSmallFace(personaje.getDisplayImagePj());
                 view.setRole(personaje.getRole());
-                view.setImageDisplay(personaje.getDisplayImagePj());
+                view.setImageDisplay(personaje.getGreatPjImage());
 
                 view.setNameHability1(personaje.getHability().get(0).getName());
                 view.setDescriptionHability1(personaje.getHability().get(0).getDescription());
