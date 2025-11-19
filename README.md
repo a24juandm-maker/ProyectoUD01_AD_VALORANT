@@ -81,13 +81,56 @@ Distincion de mayusculas y minusculas es decir que detecta los personajes que co
 Consultar la información del Personaje
 
 Al presionar en cada agente aparecera una foto de su cuerpo entero, una descripcion del personaje y sus correpondientes habilidades con sus respectivas imagenes de cada habildad junto a lo que hace cada habilidad
-<img width="1922" height="1034" alt="image" src="https://github.com/user-attachments/assets/c5d153cc-4521-423d-aef6-c9e02017a61f" />
+<img width="2552" height="1389" alt="Captura de pantalla 2025-11-18 200107" src="https://github.com/user-attachments/assets/13a48d32-a719-48f9-b440-4c91da79217b" />
+
+Registro de Usuario:
+falta imagen
+
+
+Login de Usuario:
+falta imagen 
+
+Creacion de personaje:
+Pulsamos en el boton de crear y se nos abre la siguente ventana para la creacion del nuevo personaje
+<img width="2556" height="1389" alt="Captura de pantalla 2025-11-18 200821" src="https://github.com/user-attachments/assets/eb41ba9d-9dd2-4024-9288-63ffe7a32d1b" />
+
+falta otra imagen de creacion 
+
+Edicion de personaje:
+Clicamos en el personaje que deseamos editar y se nos abrira una ventana con todos los datos inicales del personaje para que nosotros podamos modificarlo
+<img width="2552" height="1385" alt="Captura de pantalla 2025-11-18 200251" src="https://github.com/user-attachments/assets/d347c722-f35e-44d1-bd63-c063d2c8f887" />
+
+Una vez acabamos de modificar el personaje aparecera una ventana que guardara los cambios que hayamos hecho 
+<img width="2551" height="1391" alt="Captura de pantalla 2025-11-18 200335" src="https://github.com/user-attachments/assets/9c6fe838-9a2a-455b-9936-991c276eaf20" />
+
+Si volvemos a clicar en el personaje este aparecera con los cambios realizados anteriormente
+<img width="2552" height="1391" alt="Captura de pantalla 2025-11-18 200348" src="https://github.com/user-attachments/assets/c6c1e21a-9057-404c-8371-e1a9c44a0c32" />
+
+Eliminar Personaje:
+Pulsamos en el boton de eliminar, aparece una ventana en la cual se nos pide que introduzcamos un nombre para borrar ese personaje
+<img width="2552" height="1390" alt="Captura de pantalla 2025-11-18 200407" src="https://github.com/user-attachments/assets/d9931464-eb9e-459c-b9aa-5ac47847cd24" />
+
+Pulsamos en el boton de eliminar en caso de querer borrarlo y si no lo queremos borar en cancelar 
+<img width="2555" height="1390" alt="Captura de pantalla 2025-11-18 200419" src="https://github.com/user-attachments/assets/142abddb-85f4-4a26-8be5-240f1f5b280c" />
+
+Reparto de tareas:
+A la hora de dividir el trabajo nos repartimos de la siguiente manera: 
+Juanjo hizo las vistas y el readme del github
+Axel hizo la lectura de la Api y algunos controladores
+Christian hizo el modelo y otros controladores
+
+De esta manera cada uno fue haciendo los commits necesarios para que la aplicacion fuera avanzando al mismo tiempo que se seguia trabajando en ella.
+
+
+Mejoras:
 
 
 
 
 
 
+
+Conclusiones:
 
 
 
