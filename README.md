@@ -25,6 +25,35 @@ Nuestro proyecto esta planteado siguiendo el patron MVC(Modelo,Vista,Controlador
 <img width="517" height="558" alt="image" src="https://github.com/user-attachments/assets/62fd7099-406e-49dd-a0ca-7c3293be3fd3" />
 
 
+#Modelo:
+El modelo contiene los datos del programa y define cómo estos deben ser manipulados, es decir, contiene la lógica que Interactúa respondiendo a las solicitudes del controlador para acceder o actualizar los datos. Notifica indirectamente a la vista cuando los datos han cambiado para que se actualice la presentación.
+
+
+Controlador:
+El controlador recibe las entradas del usuario desde la vista y las traduce en acciones que el modelo debe ejecutar. Se encarga de interpretar las acciones del usuario, manejar los eventos, y de actualizar tanto el modelo como la vista.
+
+
+Vista:Se encarga de la visualización de los datos del modelo de manera que el usuario los entienda es decir lo entienda.
+
+Metodología
+
+Uso de Git
+
+Este proyecto sigue una metodología de desarrollo incremental basado en ramas, lo que facilita la gestión de versiones y la colaboración de todos nosotros.
+
+El flujo de trabajo que ha tenido nuestra Aplicacion es:
+
+Añadir Nuevas Funcionalidades: Cuando implementamos una nueva funcionalidad, se trabaja en la rama propia al paquete que pertenece. Cada uno de nosotros trabaja en una única rama, permitiendo que el trabajo avance de manera independiente.
+
+Testeo: Una vez que se ha completado la funcionalidad, se realizan pruebas para asegurar que todo funciona correctamente y cumple con los requisitos establecidos.
+
+Merge a Develop: Después de las pruebas exitosas, se realiza un "merge" de la rama de funcionalidad a develop. Este paso es crucial para comprobar la integración de la nueva funcionalidad con el resto del código del proyecto.
+
+Merge a Main: Finalmente, cuando la versión en develop ha sido probada y se confirma que es estable, se realiza un "merge" a la rama main. Esto marca el lanzamiento de una nueva versión del proyecto.
+
+Este enfoque permite una colaboración fluida entre los dos desarrolladores, asegurando que el código sea de alta calidad y esté bien integrado antes de ser lanzado.
+
+
 Funcionamiento del Programa:
 
 
@@ -83,8 +112,7 @@ Mejoras:
 
 
 Conclusiones:
-#Modelo:
-Contiene los datos del prorgrama que son necesarios para que este devulva 
+
 
 
 # Creditos:
