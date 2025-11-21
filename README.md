@@ -25,6 +25,7 @@ Nuestro proyecto esta planteado siguiendo el patron MVC(Modelo,Vista,Controlador
 <img width="517" height="558" alt="image" src="https://github.com/user-attachments/assets/62fd7099-406e-49dd-a0ca-7c3293be3fd3" />
 
 
+Funcionamiento del Programa:
 
 
 Consultar la información del Personaje
