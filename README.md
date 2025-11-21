@@ -25,6 +25,8 @@ Nuestro proyecto esta planteado siguiendo el patron MVC(Modelo,Vista,Controlador
 <img width="517" height="558" alt="image" src="https://github.com/user-attachments/assets/62fd7099-406e-49dd-a0ca-7c3293be3fd3" />
 
 
+
+
 Consultar la información del Personaje
 
 Al presionar en cada agente aparecera una foto de su cuerpo entero, una descripcion del personaje y sus correpondientes habilidades con sus respectivas imagenes de cada habildad junto a lo que hace cada habilidad
@@ -62,7 +64,24 @@ Pulsamos en el boton de eliminar en caso de querer borrarlo y si no lo queremos 
 <img width="2555" height="1390" alt="Captura de pantalla 2025-11-18 200419" src="https://github.com/user-attachments/assets/142abddb-85f4-4a26-8be5-240f1f5b280c" />
 
 
+Reparto de tareas:
+A la hora de dividir el trabajo nos repartimos de la siguiente manera: 
+Juanjo hizo las vistas y el readme del github
+Axel hizo la lectura de la Api y algunos controladores
+Christian hizo el modelo y otros controladores
 
+De esta manera cada uno fue haciendo los commits necesarios para que la aplicacion fuera avanzando al mismo tiempo que se seguia trabajando en ella.
+
+
+Mejoras:
+
+
+
+
+
+
+
+Conclusiones:
 #Modelo:
 Contiene los datos del prorgrama que son necesarios para que este devulva 
 
