@@ -37,7 +37,8 @@ El modelo contiene los datos del programa y define cómo estos deben ser manipul
 El controlador recibe las entradas del usuario desde la vista y las traduce en acciones que el modelo debe ejecutar. Se encarga de interpretar las acciones del usuario, manejar los eventos, y de actualizar tanto el modelo como la vista.
 
 
-# Vista:Se encarga de la visualización de los datos del modelo de manera que el usuario los entienda es decir lo entienda.
+# Vista:
+Se encarga de la visualización de los datos del modelo de manera que el usuario los entienda es decir lo entienda.
 
 # Metodología
 
