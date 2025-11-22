@@ -16,16 +16,16 @@ Centinela: Es el rol mas defensivo del juego todas o la mayor parte de sus habil
 
 El programa cuenta con un registro de usuarios mediante el cual nospodemos registrar o iniciar sesion.
 
-#Postman:
+Postman:
 Hemos utilizado Postman para ver el contenido de la API y poder definir uan esctructura clara para poder empezar a diseñar la aplicaicon
 
 
-#Estructura:
+Estructura:
 Nuestro proyecto esta planteado siguiendo el patron MVC(Modelo,Vista,Controlador)
 <img width="517" height="558" alt="image" src="https://github.com/user-attachments/assets/62fd7099-406e-49dd-a0ca-7c3293be3fd3" />
 
 
-#Modelo:
+Modelo:
 El modelo contiene los datos del programa y define cómo estos deben ser manipulados, es decir, contiene la lógica que Interactúa respondiendo a las solicitudes del controlador para acceder o actualizar los datos. Notifica indirectamente a la vista cuando los datos han cambiado para que se actualice la presentación.
 
 
@@ -47,14 +47,36 @@ Añadir Nuevas Funcionalidades: Cuando implementamos una nueva funcionalidad, se
 
 Testeo: Una vez que se ha completado la funcionalidad, se realizan pruebas para asegurar que todo funciona correctamente y cumple con los requisitos establecidos.
 
-Merge a Develop: Después de las pruebas exitosas, se realiza un "merge" de la rama de funcionalidad a develop. Este paso es crucial para comprobar la integración de la nueva funcionalidad con el resto del código del proyecto.
+Merge a Develop: Después de las pruebas exitosas, se realiza un "merge" de la rama de funcionalidad a develop. Esto es importante para comprobar la integración de la nueva funcionalidad con el resto del código del proyecto.
 
-Merge a Main: Finalmente, cuando la versión en develop ha sido probada y se confirma que es estable, se realiza un "merge" a la rama main. Esto marca el lanzamiento de una nueva versión del proyecto.
+Merge a Main: Finalmente, cuando la versión en develop ha sido probada y es estable, se realiza un "merge" a la rama main. Esto marca el lanzamiento de una nueva versión del proyecto.
 
 Este enfoque permite una colaboración fluida entre los dos desarrolladores, asegurando que el código sea de alta calidad y esté bien integrado antes de ser lanzado.
 
 
 Funcionamiento del Programa:
+
+El funcionamiento de la aplicacion es el siguiente, nos permite buscaar tanto por nombre de personaje como por el rol que tenga este en la partida, una vez entramos al programa este nos preguntara si deseamos recuperar algun dato anterior y dependiendo de la opicon que selecionemos dejara todo default o cargara los archivos que han sido modificados a mayores por otro uso anterior de la apilcacion
+<img width="2559" height="1392" alt="Captura de pantalla 2025-11-19 193109" src="https://github.com/user-attachments/assets/897a61f3-1035-49e4-a788-e81072996385" />
+<img width="2559" height="1387" alt="Captura de pantalla 2025-11-19 193119" src="https://github.com/user-attachments/assets/b931f2d8-2b00-4d8e-b746-c47388184060" />
+<img width="2559" height="1387" alt="Captura de pantalla 2025-11-19 192720" src="https://github.com/user-attachments/assets/ef1c35a7-df02-4b94-b401-77a2f29d0b01" />
+
+
+Hacemos una busqueda por nombre:
+
+<img width="2559" height="1389" alt="Captura de pantalla 2025-11-19 192743" src="https://github.com/user-attachments/assets/82787240-0d60-4bbc-8d43-a076dcd5659b" />
+El progrma detecta cuales de los pesonajes emiezan o contienen las letras que escribimos en el buscador y va deshabilitando al resto 
+
+Hacemos una busqueda por el rol del personaje:
+<img width="2559" height="1391" alt="Captura de pantalla 2025-11-19 192754" src="https://github.com/user-attachments/assets/470b77d8-24b8-4a40-ab82-387f7fad0d9e" />
+
+En este caso solo saldran los personajes que tienen dicho rol 
+
+Importante antes de hacer ninguna modificacion el cualquier de los personajes es necesario el registrarse y logearse para poder realizar modificaciones en cualquier personaje
+<img width="280" height="221" alt="Captura de pantalla 2025-11-19 192820" src="https://github.com/user-attachments/assets/1fdbb5ef-2881-4a7d-b47b-16298cf69096" />
+<img width="260" height="214" alt="Captura de pantalla 2025-11-19 192830" src="https://github.com/user-attachments/assets/e79ad5b0-5071-40b7-8856-6bb272738955" />
+<img width="262" height="208" alt="Captura de pantalla 2025-11-19 192852" src="https://github.com/user-attachments/assets/42a69998-eaad-4186-ba9a-9de927d0934f" />
+<img width="266" height="121" alt="Captura de pantalla 2025-11-19 192908" src="https://github.com/user-attachments/assets/aa200cfd-d371-4d86-870f-37aa849e8d25" />
 
 
 Consultar la información del Personaje
