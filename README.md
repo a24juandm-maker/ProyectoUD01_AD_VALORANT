@@ -43,6 +43,9 @@ Este proyecto sigue una metodología de desarrollo incremental basado en ramas, 
 
 El flujo de trabajo que ha tenido nuestra Aplicacion es:
 
+<img width="424" height="686" alt="image" src="https://github.com/user-attachments/assets/d2ffa574-d4bc-4cfe-af1c-1c9b2c0dbeba" />
+
+
 Añadir Nuevas Funcionalidades: Cuando implementamos una nueva funcionalidad, se trabaja en la rama propia al paquete que pertenece. Cada uno de nosotros trabaja en una única rama, permitiendo que el trabajo avance de manera independiente.
 
 Testeo: Una vez que se ha completado la funcionalidad, se realizan pruebas para asegurar que todo funciona correctamente y cumple con los requisitos establecidos.
