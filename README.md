@@ -129,7 +129,8 @@ Mejoras:
 
 
 
-Conclusiones:
+
+Conclusiones: En total cada uno del grupo ha invertido mas o menos x horas, teniendo en cuenta de que la mayoria del tiempo ha sido correguir errores del programa tanto de la interfaz como del codigo del programa, ya que es la primera vez que hacemos algo asi a nivel de programacion tanto de creacion de interfaces, lo que mas dificil nos ha parecido ha sido entender como funciona el manejo de la informacion de la api para nosotros poder manejarla 
 
 
 
