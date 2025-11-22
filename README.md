@@ -75,12 +75,12 @@ El funcionamiento de la aplicacion es el siguiente, nos permite buscaar tanto po
 <img width="2559" height="1389" alt="Captura de pantalla 2025-11-19 192743" src="https://github.com/user-attachments/assets/82787240-0d60-4bbc-8d43-a076dcd5659b" />
 El progrma detecta cuales de los pesonajes emiezan o contienen las letras que escribimos en el buscador y va deshabilitando al resto 
 
-Hacemos una busqueda por el rol del personaje:
+# Hacemos una busqueda por el rol del personaje:
 <img width="2559" height="1391" alt="Captura de pantalla 2025-11-19 192754" src="https://github.com/user-attachments/assets/470b77d8-24b8-4a40-ab82-387f7fad0d9e" />
 
 En este caso solo saldran los personajes que tienen dicho rol 
 
-Importante antes de hacer ninguna modificacion el cualquier de los personajes es necesario el registrarse y logearse para poder realizar modificaciones en cualquier personaje
+# Importante antes de hacer ninguna modificacion el cualquier de los personajes es necesario el registrarse y logearse para poder realizar modificaciones en cualquier personaje
 
 <img width="280" height="221" alt="Captura de pantalla 2025-11-19 192820" src="https://github.com/user-attachments/assets/1fdbb5ef-2881-4a7d-b47b-16298cf69096" /> 
 <img width="260" height="214" alt="Captura de pantalla 2025-11-19 192830" src="https://github.com/user-attachments/assets/e79ad5b0-5071-40b7-8856-6bb272738955" />
