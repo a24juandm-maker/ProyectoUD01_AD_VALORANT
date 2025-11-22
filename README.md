@@ -73,10 +73,13 @@ Hacemos una busqueda por el rol del personaje:
 En este caso solo saldran los personajes que tienen dicho rol 
 
 Importante antes de hacer ninguna modificacion el cualquier de los personajes es necesario el registrarse y logearse para poder realizar modificaciones en cualquier personaje
-<img width="280" height="221" alt="Captura de pantalla 2025-11-19 192820" src="https://github.com/user-attachments/assets/1fdbb5ef-2881-4a7d-b47b-16298cf69096" />
+
+<img width="280" height="221" alt="Captura de pantalla 2025-11-19 192820" src="https://github.com/user-attachments/assets/1fdbb5ef-2881-4a7d-b47b-16298cf69096" /> 
 <img width="260" height="214" alt="Captura de pantalla 2025-11-19 192830" src="https://github.com/user-attachments/assets/e79ad5b0-5071-40b7-8856-6bb272738955" />
 <img width="262" height="208" alt="Captura de pantalla 2025-11-19 192852" src="https://github.com/user-attachments/assets/42a69998-eaad-4186-ba9a-9de927d0934f" />
 <img width="266" height="121" alt="Captura de pantalla 2025-11-19 192908" src="https://github.com/user-attachments/assets/aa200cfd-d371-4d86-870f-37aa849e8d25" />
+
+
 
 
 Consultar la información del Personaje
@@ -84,13 +87,6 @@ Consultar la información del Personaje
 Al presionar en cada agente aparecera una foto de su cuerpo entero, una descripcion del personaje y sus correpondientes habilidades con sus respectivas imagenes de cada habildad junto a lo que hace cada habilidad
 <img width="1922" height="1034" alt="image" src="https://github.com/user-attachments/assets/c5d153cc-4521-423d-aef6-c9e02017a61f" />
 <img width="2552" height="1389" alt="Captura de pantalla 2025-11-18 200107" src="https://github.com/user-attachments/assets/13a48d32-a719-48f9-b440-4c91da79217b" />
-
-Registro de Usuario:
-falta imagen
-
-
-Login de Usuario:
-falta imagen 
 
 Creacion de personaje:
 Pulsamos en el boton de crear y se nos abre la siguente ventana para la creacion del nuevo personaje
