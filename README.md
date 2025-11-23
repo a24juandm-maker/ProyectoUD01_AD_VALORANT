@@ -101,7 +101,7 @@ Al presionar en cada agente aparecerá una foto de su cuerpo entero, una descrip
 Pulsamos en el botón de crear y se nos abre la siguiente ventana para la creación del nuevo personaje
 <img width="2556" height="1389" alt="Captura de pantalla 2025-11-18 200821" src="https://github.com/user-attachments/assets/eb41ba9d-9dd2-4024-9288-63ffe7a32d1b" />
 
-falta otra imagen de creación 
+
 
 # Edición de personaje:
 Clickamos en el personaje que deseamos editar y se nos abrirá una ventana con todos los datos iniciales del personaje para que nosotros podamos modificarlo
