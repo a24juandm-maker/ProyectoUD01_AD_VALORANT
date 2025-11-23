@@ -122,6 +122,7 @@ Pulsamos en el boton de eliminar en caso de querer borrarlo y si no lo queremos 
 
 # Reparto de tareas:
 A la hora de dividir el trabajo nos repartimos de la siguiente manera: 
+
 Juanjo hizo las vistas y el readme del github
 Axel hizo la lectura de la Api y algunos controladores
 Christian hizo el modelo y otros controladores
@@ -130,16 +131,16 @@ De esta manera cada uno fue haciendo los commits necesarios para que la aplicaci
 
 
 # Mejoras:
+Algunas mejoras que podriamos implementar si tubieramos mas tiempo son las siguientes:
 
-
-
-
-
+Usar un layout para que la pantalla del programa se redimensione automaticamente a la pantalla en la que esta siendo mostrada 
+Cambiar algunos JLabel por JTextField ya que en la mayoria de las vistas 
+Mejorar el filtrado de datos erroneos en la creacion 
 
 
 
 # Conclusiones: 
-En total cada uno del grupo ha invertido mas o menos x horas, teniendo en cuenta de que la mayoria del tiempo ha sido correguir errores del programa tanto de la interfaz como del codigo del programa, ya que es la primera vez que hacemos algo asi a nivel de programacion tanto de creacion de interfaces, lo que mas dificil nos ha parecido ha sido entender como funciona el manejo de la informacion de la api para nosotros poder manejarla 
+Cristian ha invertido unas 40 horas Axel unas 30 y Juanjo unas 25 horas , teniendo en cuenta de que la mayoria del tiempo ha sido correguir errores del programa tanto de la interfaz como del codigo del programa, ya que es la primera vez que hacemos algo asi a nivel de programacion tanto de creacion de interfaces, lo que mas dificil nos ha parecido ha sido entender como funciona el manejo de la informacion de la api para nosotros poder manejarla 
 
 
 
