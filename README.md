@@ -26,7 +26,8 @@ Hemos utilizado Postman para ver el contenido de la API y poder definir uan esct
 
 # Estructura:
 Nuestro proyecto esta planteado siguiendo el patron MVC(Modelo,Vista,Controlador)
-<img width="517" height="558" alt="image" src="https://github.com/user-attachments/assets/62fd7099-406e-49dd-a0ca-7c3293be3fd3" />
+<img width="574" height="606" alt="image" src="https://github.com/user-attachments/assets/21510a91-8f11-4969-9197-221a806b76d0" />
+
 
 
 # Modelo:
